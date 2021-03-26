@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A61F135-0D68-4423-B907-974EDC866888}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QLTTHT</RootNamespace>
+    <AssemblyName>QLTTHT</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DTO\BienLaiThuHocPhi.cs" />
+    <Compile Include="DTO\BienLaiTraLuong.cs" />
+    <Compile Include="DTO\BuoiHoc.cs" />
+    <Compile Include="DTO\DiemDanh.cs" />
+    <Compile Include="DTO\GiaoVien.cs" />
+    <Compile Include="DTO\HocVien.cs" />
+    <Compile Include="DTO\HocVienLopHoc.cs" />
+    <Compile Include="DTO\LopHoc.cs" />
+    <Compile Include="DTO\MonHoc.cs" />
+    <Compile Include="DTO\MucHocPhi.cs" />
+    <Compile Include="DTO\MucThanhToan.cs" />
+    <Compile Include="GUI\fAddClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fAddClass.designer.cs">
+      <DependentUpon>fAddClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fAddStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fAddStudent.designer.cs">
+      <DependentUpon>fAddStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fAddTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fAddTeacher.designer.cs">
+      <DependentUpon>fAddTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fClass.designer.cs">
+      <DependentUpon>fClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fClassRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fClassRegistration.designer.cs">
+      <DependentUpon>fClassRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fLogin.designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fMain.designer.cs">
+      <DependentUpon>fMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fStudent.designer.cs">
+      <DependentUpon>fStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fStudentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fStudentInfo.designer.cs">
+      <DependentUpon>fStudentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fTeacher.designer.cs">
+      <DependentUpon>fTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fTeacherInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fTeacherInfo.designer.cs">
+      <DependentUpon>fTeacherInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\fAddClass.resx">
+      <DependentUpon>fAddClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fAddStudent.resx">
+      <DependentUpon>fAddStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fAddTeacher.resx">
+      <DependentUpon>fAddTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fClass.resx">
+      <DependentUpon>fClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fClassRegistration.resx">
+      <DependentUpon>fClassRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fMain.resx">
+      <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fStudent.resx">
+      <DependentUpon>fStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fStudentInfo.resx">
+      <DependentUpon>fStudentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fTeacher.resx">
+      <DependentUpon>fTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fTeacherInfo.resx">
+      <DependentUpon>fTeacherInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBase\Data.sql" />
+    <Content Include="DataBase\diagram.bmp" />
+    <Content Include="DataBase\QLTTHT.sql" />
+    <Content Include="DataBase\StoreProcedureAndTrigger.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
