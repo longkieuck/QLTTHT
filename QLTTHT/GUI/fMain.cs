@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLTTHT.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,10 +20,18 @@ namespace QLTrungTamHocThem_NhomLongThiepQuynhVan
 
         private void button1_Click(object sender, EventArgs e)
         {
-            fTeacher f = new fTeacher();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            if(TaiKhoanDAO.Instance.MaQuyen == 1)
+            {
+                fTeacher f = new fTeacher();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -35,10 +44,17 @@ namespace QLTrungTamHocThem_NhomLongThiepQuynhVan
 
         private void button3_Click(object sender, EventArgs e)
         {
-            fStudent f = new fStudent();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            if (TaiKhoanDAO.Instance.MaQuyen == 1)
+            {
+                fStudent f = new fStudent();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+            }
         }
     }
 }

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DTO\BienLaiThuHocPhi.cs" />
     <Compile Include="DTO\BienLaiTraLuong.cs" />
     <Compile Include="DTO\BuoiHoc.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="DTO\MonHoc.cs" />
     <Compile Include="DTO\MucHocPhi.cs" />
     <Compile Include="DTO\MucThanhToan.cs" />
+    <Compile Include="DTO\TaiKhoan.cs" />
     <Compile Include="GUI\fAddClass.cs">
       <SubType>Form</SubType>
     </Compile>

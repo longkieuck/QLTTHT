@@ -172,3 +172,29 @@ BEGIN
 	WHERE MAGV=@MAGV
 END
 GO
+
+--SP Login
+CREATE PROC SP_Login
+@username nvarchar(50), @pass nvarchar(50)
+AS
+BEGIN
+	SELECT * FROM dbo.TAIKHOAN WHERE TK = @username AND MK = @pass
+END
+GO
+
+--SP_GetMaQuyenByUserName
+CREATE PROC SP_GetMaQuyenByUserName
+@username nvarchar(50), @pass nvarchar(50)
+AS
+BEGIN
+	SELECT * FROM dbo.TAIKHOAN WHERE TK = @username
+END
+GO
+--SP_GetMaGVByUserName
+CREATE PROC SP_GetMaGVByUserName
+@username nvarchar(50), @pass nvarchar(50)
+AS
+BEGIN
+	SELECT * FROM dbo.GIAOVIEN WHERE TK = @username
+END
+GO
