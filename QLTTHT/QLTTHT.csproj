@@ -88,6 +88,12 @@
     <Compile Include="GUI\fClassRegistration.designer.cs">
       <DependentUpon>fClassRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fCreateAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fCreateAccount.Designer.cs">
+      <DependentUpon>fCreateAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fClassRegistration.resx">
       <DependentUpon>fClassRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fCreateAccount.resx">
+      <DependentUpon>fCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
