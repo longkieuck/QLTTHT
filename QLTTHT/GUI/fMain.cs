@@ -20,7 +20,7 @@ namespace QLTrungTamHocThem_NhomLongThiepQuynhVan
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(TaiKhoanDAO.Instance.MaQuyen == 1)
+            if(TaiKhoanDAO.Instance.MaQuyen == 2)
             {
                 fTeacher f = new fTeacher();
                 this.Hide();
@@ -44,7 +44,7 @@ namespace QLTrungTamHocThem_NhomLongThiepQuynhVan
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (TaiKhoanDAO.Instance.MaQuyen == 1)
+            if (TaiKhoanDAO.Instance.MaQuyen == 2)
             {
                 fStudent f = new fStudent();
                 this.Hide();
