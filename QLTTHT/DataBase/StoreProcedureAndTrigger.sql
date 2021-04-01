@@ -1,5 +1,7 @@
 ﻿--TRIGGER
 --update muc uu dai cho hoc vien sau khi dang ki them lop hoc moi(muc hoc phi toi da la 3)
+use QL_TTHT
+go
 CREATE TRIGGER UPDATE_MUCUUDAI
 ON HOCVIEN_LOPHOC AFTER INSERT
 AS
@@ -198,3 +200,64 @@ BEGIN
 	SELECT * FROM dbo.GIAOVIEN WHERE TK = @username
 END
 GO
+
+-- Van
+create proc GetTeacherList
+as
+begin
+	select *
+	from GIAOVIEN, MUCTHANHTOAN
+	where GIAOVIEN.MaMTT = MUCTHANHTOAN.MaMTT
+end
+go
+
+CREATE FUNCTION [dbo].[GetUnsignString](@strInput NVARCHAR(4000)) 
+RETURNS NVARCHAR(4000)
+AS
+BEGIN     
+    IF @strInput IS NULL RETURN @strInput
+    IF @strInput = '' RETURN @strInput
+    DECLARE @RT NVARCHAR(4000)
+    DECLARE @SIGN_CHARS NCHAR(136)
+    DECLARE @UNSIGN_CHARS NCHAR (136)
+
+    SET @SIGN_CHARS       = N'ăâđêôơưàảãạáằẳẵặắầẩẫậấèẻẽẹéềểễệếìỉĩịíòỏõọóồổỗộốờởỡợớùủũụúừửữựứỳỷỹỵýĂÂĐÊÔƠƯÀẢÃẠÁẰẲẴẶẮẦẨẪẬẤÈẺẼẸÉỀỂỄỆẾÌỈĨỊÍÒỎÕỌÓỒỔỖỘỐỜỞỠỢỚÙỦŨỤÚỪỬỮỰỨỲỶỸỴÝ'+NCHAR(272)+ NCHAR(208)
+    SET @UNSIGN_CHARS = N'aadeoouaaaaaaaaaaaaaaaeeeeeeeeeeiiiiiooooooooooooooouuuuuuuuuuyyyyyAADEOOUAAAAAAAAAAAAAAAEEEEEEEEEEIIIIIOOOOOOOOOOOOOOOUUUUUUUUUUYYYYYDD'
+
+    DECLARE @COUNTER int
+    DECLARE @COUNTER1 int
+    SET @COUNTER = 1
+ 
+    WHILE (@COUNTER <=LEN(@strInput))
+    BEGIN   
+      SET @COUNTER1 = 1
+      --Tim trong chuoi mau
+       WHILE (@COUNTER1 <=LEN(@SIGN_CHARS)+1)
+       BEGIN
+     IF UNICODE(SUBSTRING(@SIGN_CHARS, @COUNTER1,1)) = UNICODE(SUBSTRING(@strInput,@COUNTER ,1) )
+     BEGIN           
+          IF @COUNTER=1
+              SET @strInput = SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1) + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)-1)                   
+          ELSE
+              SET @strInput = SUBSTRING(@strInput, 1, @COUNTER-1) +SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1) + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)- @COUNTER)    
+              BREAK         
+               END
+             SET @COUNTER1 = @COUNTER1 +1
+       END
+      --Tim tiep
+       SET @COUNTER = @COUNTER +1
+    END
+    RETURN @strInput
+END
+
+create proc SearchGiaoVienByName
+	@name nvarchar(50)
+as
+begin
+	select *
+	from GIAOVIEN
+	where [dbo].[GetUnsignString](HoTen) like N'%' + [dbo].[GetUnsignString](@name) + '%'
+end
+go
+
+exec SearchGiaoVienByName N'Lê Thanh Ngọc'

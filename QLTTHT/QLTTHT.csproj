@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
+    <Compile Include="DAO\GiaoVienDAO.cs" />
     <Compile Include="DTO\BienLaiThuHocPhi.cs" />
     <Compile Include="DTO\BienLaiTraLuong.cs" />
     <Compile Include="DTO\BuoiHoc.cs" />

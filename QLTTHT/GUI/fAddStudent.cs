@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLTrungTamHocThem_NhomLongThiepQuynhVan
+namespace QLTTHT
 {
     public partial class fAddStudent : Form
     {
@@ -18,3 +18,4 @@ namespace QLTrungTamHocThem_NhomLongThiepQuynhVan
         }
     }
 }
+
