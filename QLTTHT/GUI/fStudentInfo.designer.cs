@@ -1,4 +1,4 @@
-﻿namespace QLTrungTamHocThem_NhomLongThiepQuynhVan
+﻿namespace QLTTHT
 {
     partial class StudentInfo
     {

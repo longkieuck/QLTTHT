@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QLTrungTamHocThem_NhomLongThiepQuynhVan.DTO
+namespace QLTTHT.DTO
 {
     class HocVien
     {
@@ -13,8 +13,9 @@ namespace QLTrungTamHocThem_NhomLongThiepQuynhVan.DTO
         public string HoTen { set; get; }
         public string SDT { set; get; }
         public DateTime  NgaySinh { set; get; }
-        public int GioiTinh { set; get; }
-        public int MaMHP { set; get; }
+        public string DiaChi { set; get; }
+        public string GioiTinh { set; get; }
+        public float MaMUD { set; get; }
         
         public HocVien() { }
         public HocVien(DataRow dataRow)
@@ -23,8 +24,9 @@ namespace QLTrungTamHocThem_NhomLongThiepQuynhVan.DTO
             this.HoTen = dataRow["HoTen"].ToString();
             this.SDT = dataRow["SDT"].ToString();
             this.NgaySinh = DateTime.Parse(dataRow["NgaySinh"].ToString());
-            this.GioiTinh = Int32.Parse(dataRow["GioiTinh"].ToString());
-            this.MaMHP = Int32.Parse(dataRow["MaMHP"].ToString());
+            this.DiaChi = dataRow["DiaChi"].ToString();
+            this.GioiTinh =dataRow["GioiTinh"].ToString();
+            this.MaMUD = float.Parse(dataRow["MaMUD"].ToString());
         }
 
     }

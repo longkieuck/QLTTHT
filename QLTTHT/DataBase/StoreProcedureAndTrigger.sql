@@ -1,4 +1,5 @@
 ﻿--TRIGGER
+USE QL_TTHT
 --update muc uu dai cho hoc vien sau khi dang ki them lop hoc moi(muc hoc phi toi da la 3)
 CREATE TRIGGER UPDATE_MUCUUDAI
 ON HOCVIEN_LOPHOC AFTER INSERT
@@ -196,5 +197,14 @@ CREATE PROC SP_GetMaGVByUserName
 AS
 BEGIN
 	SELECT * FROM dbo.GIAOVIEN WHERE TK = @username
+END
+GO
+
+--HocSinh-GetAll
+CREATE PROCEDURE HocSinh_GetAll
+AS
+BEGIN
+  SELECT *
+  FROM Hoc
 END
 GO
