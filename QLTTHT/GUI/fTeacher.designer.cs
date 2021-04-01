@@ -36,11 +36,12 @@
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtHoTen = new System.Windows.Forms.TextBox();
-            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnThemGiaoVien = new System.Windows.Forms.Button();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnXem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGiaoVien)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,7 @@
             this.dtgvGiaoVien.Name = "dtgvGiaoVien";
             this.dtgvGiaoVien.RowHeadersWidth = 62;
             this.dtgvGiaoVien.RowTemplate.Height = 28;
-            this.dtgvGiaoVien.Size = new System.Drawing.Size(824, 311);
+            this.dtgvGiaoVien.Size = new System.Drawing.Size(823, 311);
             this.dtgvGiaoVien.TabIndex = 14;
             // 
             // MaGV
@@ -88,7 +89,7 @@
             // 
             // GT
             // 
-            this.GT.DataPropertyName = "GT";
+            this.GT.DataPropertyName = "GioiTinh";
             this.GT.HeaderText = "Giới Tính";
             this.GT.Name = "GT";
             this.GT.Width = 80;
@@ -114,24 +115,13 @@
             this.MTT.Name = "MTT";
             this.MTT.Width = 120;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(789, 82);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(62, 22);
-            this.btnSearch.TabIndex = 12;
-            this.btnSearch.Text = "Tìm kiếm";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(27, 14);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(745, 49);
+            this.panel2.Size = new System.Drawing.Size(823, 49);
             this.panel2.TabIndex = 10;
             // 
             // label1
@@ -139,7 +129,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(251, 0);
+            this.label1.Location = new System.Drawing.Point(290, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(260, 32);
@@ -153,25 +143,46 @@
             this.txtHoTen.Size = new System.Drawing.Size(167, 20);
             this.txtHoTen.TabIndex = 15;
             // 
-            // btnInsert
+            // btnThemGiaoVien
             // 
-            this.btnInsert.Location = new System.Drawing.Point(27, 80);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(101, 23);
-            this.btnInsert.TabIndex = 16;
-            this.btnInsert.Text = "Thêm Giáo Viên";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            this.btnThemGiaoVien.Location = new System.Drawing.Point(27, 80);
+            this.btnThemGiaoVien.Name = "btnThemGiaoVien";
+            this.btnThemGiaoVien.Size = new System.Drawing.Size(106, 23);
+            this.btnThemGiaoVien.TabIndex = 16;
+            this.btnThemGiaoVien.Text = "Thêm Giáo Viên";
+            this.btnThemGiaoVien.UseVisualStyleBackColor = true;
+            this.btnThemGiaoVien.Click += new System.EventHandler(this.btnThemGiaoVien_Click);
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Location = new System.Drawing.Point(775, 82);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiem.TabIndex = 17;
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(170, 80);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(75, 23);
+            this.btnXem.TabIndex = 18;
+            this.btnXem.Text = "Xem";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // fTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 450);
-            this.Controls.Add(this.btnInsert);
+            this.Controls.Add(this.btnXem);
+            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.btnThemGiaoVien);
             this.Controls.Add(this.txtHoTen);
             this.Controls.Add(this.dtgvGiaoVien);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fTeacher";
@@ -188,10 +199,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dtgvGiaoVien;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.Button btnThemGiaoVien;
+        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
@@ -199,6 +211,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MTT;
-        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnXem;
     }
 }

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\MucThanhToanDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\GiaoVienDAO.cs" />
     <Compile Include="DTO\BienLaiThuHocPhi.cs" />
@@ -90,12 +91,6 @@
     </Compile>
     <Compile Include="GUI\fClassRegistration.designer.cs">
       <DependentUpon>fClassRegistration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\fCreateAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\fCreateAccount.Designer.cs">
-      <DependentUpon>fCreateAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
@@ -149,9 +144,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fClassRegistration.resx">
       <DependentUpon>fClassRegistration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fCreateAccount.resx">
-      <DependentUpon>fCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>

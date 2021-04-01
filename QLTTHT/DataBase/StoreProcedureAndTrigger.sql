@@ -201,16 +201,18 @@ BEGIN
 END
 GO
 
--- Van
+---------------------------------- Van--------------------------------------------------
+-- Thu tuc lay danh sach giao vien va muc thanh toan tuong ung
 create proc GetTeacherList
 as
 begin
-	select *
-	from GIAOVIEN, MUCTHANHTOAN
-	where GIAOVIEN.MaMTT = MUCTHANHTOAN.MaMTT
+	select gv.MaGV, gv.HoTen, gv.NgaySinh, gv.GioiTinh, gv.DiaChi, gv.SDT, mtt.TiLe
+	from GIAOVIEN gv, MUCTHANHTOAN mtt
+	where gv.MaMTT = mtt.MaMTT
 end
 go
 
+-- Ham tim kiem ten
 CREATE FUNCTION [dbo].[GetUnsignString](@strInput NVARCHAR(4000)) 
 RETURNS NVARCHAR(4000)
 AS
@@ -249,15 +251,42 @@ BEGIN
     END
     RETURN @strInput
 END
+go
 
+-- Thu tuc tim kiem giao vien theo ten
 create proc SearchGiaoVienByName
 	@name nvarchar(50)
 as
 begin
-	select *
-	from GIAOVIEN
-	where [dbo].[GetUnsignString](HoTen) like N'%' + [dbo].[GetUnsignString](@name) + '%'
+	select gv.MaGV, gv.HoTen, gv.NgaySinh, gv.GioiTinh, gv.DiaChi, gv.SDT, mtt.TiLe
+	from GIAOVIEN gv, MucThanhToan mtt
+	where gv.MaMTT = mtt.MaMTT and [dbo].[GetUnsignString](HoTen) like N'%' + [dbo].[GetUnsignString](@name) + '%'
 end
 go
 
-exec SearchGiaoVienByName N'Lê Thanh Ngọc'
+-- Thu tuc lay danh sach muc thanh toan cua giao vien
+create proc GetMucTTList
+as
+begin
+	select *
+	from MUCTHANHTOAN
+end
+go
+
+-- Thu tuc them giao vien
+create proc InsertGiaoVien
+	@hoten nvarchar(50),
+	@ngaysinh date,
+	@diachi nvarchar(50),
+	@gioitinh nchar(3),
+	@sdt char(10),
+	@mamtt int,
+	@tk nchar(50),
+	@mk nchar(50)
+as
+begin
+	insert into TAIKHOAN values(@tk, @mk, 2)
+	insert into GIAOVIEN(HoTen, SDT, NgaySinh, DiaChi, GioiTinh, MaMTT, TK) values(@hoten, @sdt, @ngaysinh, @diachi, @gioitinh, @mamtt, @tk)
+end
+
+---------------------------------- . / Van -----------------------------------------------

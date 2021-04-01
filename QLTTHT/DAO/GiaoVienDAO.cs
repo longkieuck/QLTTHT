@@ -37,5 +37,11 @@ namespace QLTTHT.DAO
             }
             return list;
         }
+
+        public bool InsertGiaoVien(string hoten, DateTime ngaysinh, string diachi, string gioitinh, string sdt, int mamtt, string tk, string mk)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec InsertGiaoVien @hoten , @ngaysinh , @diachi , @gioitinh , @sdt , @mamtt , @tk , @mk", new object[] { hoten, ngaysinh, diachi, gioitinh, sdt, mamtt, tk, mk });
+            return result > 0;
+        }
     }
 }

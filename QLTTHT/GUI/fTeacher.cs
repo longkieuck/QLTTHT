@@ -18,36 +18,39 @@ namespace QLTTHT
         public fTeacher()
         {
             InitializeComponent();
-            LoadTeacherList();
+            LoadTeacher();
         }
 
-        void Load()
+        void LoadTeacher()
         {
             dtgvGiaoVien.DataSource = giaovienlist;
+            LoadTeacherList();
         }
        
-
         void LoadTeacherList()
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("GetTeacherList");
             giaovienlist.DataSource = data;
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string name = txtHoTen.Text;
 
             string query = string.Format("exec SearchGiaoVienByName @name");
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { name });
             dtgvGiaoVien.DataSource = data;
-
-
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void btnThemGiaoVien_Click(object sender, EventArgs e)
         {
             fAddTeacher f = new fAddTeacher();
             f.Show();
+        }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            LoadTeacher();
         }
     }
 }
