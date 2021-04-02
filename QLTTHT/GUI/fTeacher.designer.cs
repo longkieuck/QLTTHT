@@ -63,8 +63,9 @@
             this.dtgvGiaoVien.Name = "dtgvGiaoVien";
             this.dtgvGiaoVien.RowHeadersWidth = 62;
             this.dtgvGiaoVien.RowTemplate.Height = 28;
-            this.dtgvGiaoVien.Size = new System.Drawing.Size(823, 311);
+            this.dtgvGiaoVien.Size = new System.Drawing.Size(823, 392);
             this.dtgvGiaoVien.TabIndex = 14;
+            this.dtgvGiaoVien.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvGiaoVien_CellDoubleClick);
             // 
             // MaGV
             // 
@@ -177,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 450);
+            this.ClientSize = new System.Drawing.Size(883, 528);
             this.Controls.Add(this.btnXem);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.btnThemGiaoVien);

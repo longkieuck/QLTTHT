@@ -273,6 +273,28 @@ begin
 end
 go
 
+-- Thu tuc lay muc thanh toan theo giao vien
+create proc GetMucTTByGiaoVien
+	@magv int
+as
+begin
+	select *
+	from MUCTHANHTOAN mtt
+	where mtt.MaMTT in (select gv.MaMTT
+						from GIAOVIEN gv
+						where gv.MaGV = @magv)
+end
+
+-- Thu tuc tim giao vien theo magv
+create proc GetGiaoVien
+	@magv int
+as
+begin
+	select *
+	from GIAOVIEN
+	where MaGV = @magv
+end
+
 -- Thu tuc them giao vien
 create proc InsertGiaoVien
 	@hoten nvarchar(50),
@@ -288,5 +310,46 @@ begin
 	insert into TAIKHOAN values(@tk, @mk, 2)
 	insert into GIAOVIEN(HoTen, SDT, NgaySinh, DiaChi, GioiTinh, MaMTT, TK) values(@hoten, @sdt, @ngaysinh, @diachi, @gioitinh, @mamtt, @tk)
 end
+go
+
+-- Thu tuc dua ra danh sach lop hoc cua giao vien co id cu the
+create proc GetLopHocByMaGV
+	@magv int
+as
+begin
+	select *
+	from LOPHOC lh
+	where lh.MaGV = @magv
+end
+go
+
+-- Thu tuc cap nhat thong tin giao vien theo id
+create proc UpdateGiaoVien
+	@magv int,
+	@hoten nvarchar(50),
+	@sdt char(10),
+	@ngaysinh date,
+	@diachi nvarchar(50),
+	@gioitinh nvarchar(3),
+	@mamtt int
+as
+begin
+	update GIAOVIEN
+	set HoTen=@hoten, SDT=@sdt, NgaySinh=@ngaysinh, DiaChi=@diachi, GioiTinh=@gioitinh, MaMTT=@mamtt
+	where MaGV = @magv
+end
+
+exec UpdateGiaoVien 1,N'Lê Thanh Hoa','033456987','1994-11-11',N'Hà Nội',N'Nữ'
+
+drop procedure UpdateGiaoVien
+-- Thu tuc xoa thong tin giao vien theo id
+create proc DeleteGiaoVien
+	@magv int
+as
+begin
+	delete GIAOVIEN
+	where MaGV = @magv
+end
+go
 
 ---------------------------------- . / Van -----------------------------------------------

@@ -38,9 +38,23 @@ namespace QLTTHT.DAO
             return list;
         }
 
+        public GiaoVien GetGiaoVienByMaGV(int magiaovien)
+        {
+
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GetGiaoVien @magv", new object[] { magiaovien });
+            GiaoVien gv = new GiaoVien(data.Rows[0]);
+            return gv;
+        }
+
         public bool InsertGiaoVien(string hoten, DateTime ngaysinh, string diachi, string gioitinh, string sdt, int mamtt, string tk, string mk)
         {
             int result = DataProvider.Instance.ExecuteNonQuery("exec InsertGiaoVien @hoten , @ngaysinh , @diachi , @gioitinh , @sdt , @mamtt , @tk , @mk", new object[] { hoten, ngaysinh, diachi, gioitinh, sdt, mamtt, tk, mk });
+            return result > 0;
+        }
+
+        public bool UpdateGiaoVien(int magv, string hoten, DateTime ngaysinh, string diachi, string gioitinh, string sdt, int mamtt)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec UpdateGiaoVien @magv , @hoten , @sdt , @ngaysinh , @diachi , @gioitinh , @mamtt", new object[] { magv, hoten, ngaysinh, diachi, gioitinh, sdt, mamtt });
             return result > 0;
         }
     }
