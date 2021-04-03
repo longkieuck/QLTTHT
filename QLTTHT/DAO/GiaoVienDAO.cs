@@ -54,7 +54,13 @@ namespace QLTTHT.DAO
 
         public bool UpdateGiaoVien(int magv, string hoten, DateTime ngaysinh, string diachi, string gioitinh, string sdt, int mamtt)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("exec UpdateGiaoVien @magv , @hoten , @sdt , @ngaysinh , @diachi , @gioitinh , @mamtt", new object[] { magv, hoten, ngaysinh, diachi, gioitinh, sdt, mamtt });
+            int result = DataProvider.Instance.ExecuteNonQuery("exec UpdateGiaoVien @magv , @hoten , @sdt , @ngaysinh , @diachi , @gioitinh , @mamtt", new object[] { magv, hoten, sdt, ngaysinh, diachi, gioitinh, mamtt });
+            return result > 0;
+        }
+
+        public bool DeleteGiaoVien(int magv)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec DeleteGiaoVien @magv", new object[] { magv });
             return result > 0;
         }
     }

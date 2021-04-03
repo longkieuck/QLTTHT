@@ -29,5 +29,12 @@ namespace QLTTHT.DAO
             }
             return list;
         }
+
+        public MucThanhToan GetTiLeTT(int mamtt)
+        {           
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GetMucThanhToan @mamtt", new object[] { mamtt });
+            MucThanhToan mtt = new MucThanhToan(data.Rows[0]);
+            return mtt;
+        }
     }
 }

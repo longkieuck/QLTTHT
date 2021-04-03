@@ -12,12 +12,6 @@ namespace QLTTHT.DAO
     {
         private static LopHocDAO instance;
 
-        public int MaLH { set; get; }
-        public string TenLH { set; get; }
-        public float Hp1Buoi { set; get; }
-        public int MaMH { set; get; }
-        public int MaGV { set; get; }
-
         public static LopHocDAO Instance
         {
             get { if (instance == null) instance = new LopHocDAO(); return instance; }
@@ -34,6 +28,13 @@ namespace QLTTHT.DAO
                 list.Add(entry);
             }
             return list;
+        }
+
+        public MucHocPhi GetHocPhi(int malh)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GetHocPhi @malh", new object[] { malh });
+            MucHocPhi gv = new MucHocPhi(data.Rows[0]);
+            return gv;
         }
     }
 }

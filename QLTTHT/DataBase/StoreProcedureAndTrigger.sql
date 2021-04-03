@@ -339,9 +339,6 @@ begin
 	where MaGV = @magv
 end
 
-exec UpdateGiaoVien 1,N'Lê Thanh Hoa','033456987','1994-11-11',N'Hà Nội',N'Nữ'
-
-drop procedure UpdateGiaoVien
 -- Thu tuc xoa thong tin giao vien theo id
 create proc DeleteGiaoVien
 	@magv int
@@ -352,4 +349,28 @@ begin
 end
 go
 
+-- Thu tuc tim muc thanh toan theo mamtt
+create proc GetMucThanhToan
+	@mamtt int
+as
+begin
+	select *
+	from MUCTHANHTOAN
+	where MaMTT = @mamtt
+end
+go
+
+-- Thu tuc tim hoc phi lop theo ma lop
+create proc GetHocPhi
+	@malh int
+as
+begin
+	select *
+	from MUCHOCPHI mhp
+	where mhp.MaMHP in (select lh.MaMHP
+						from LOPHOC lh
+						where lh.MaLH = @malh)
+end
+
+exec GetHocPhi 1
 ---------------------------------- . / Van -----------------------------------------------

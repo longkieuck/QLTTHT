@@ -15,6 +15,7 @@ namespace QLTTHT
     public partial class fTeacherInfo : Form
     {
         public int magiaovien;
+        int mamucthanhtoan;
         public fTeacherInfo()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace QLTTHT
         {
             List<MucThanhToan> listMucThanhToan = MucThanhToanDAO.Instance.GetAll();
             cbMTT.DataSource = listMucThanhToan;
-            cbMTT.DisplayMember = "MaMTT";
+            cbMTT.DisplayMember = "TiLe";
         }
 
         public void LoadThongTinGV()
@@ -42,7 +43,7 @@ namespace QLTTHT
             txtHoTen.Text = gv.HoTen;
             txtDiaChi.Text = gv.DiaChi;
             txtSDT.Text = gv.SDT;
-            dtpNgaySinh.Value = gv.NgaySinh;
+            dtpNgaySinh.Text = gv.NgaySinh.ToString();
             if (gv.GioiTinh.CompareTo("Nam") == 0)
             {
                 rBNam.Checked = true;
@@ -53,7 +54,7 @@ namespace QLTTHT
                 rBNu.Checked = true;
                 rBNam.Checked = false;
             }
-            cbMTT.Text = gv.MaMTT.ToString();
+            cbMTT.Text = MucThanhToanDAO.Instance.GetTiLeTT(gv.MaMTT).TiLe.ToString();
             LoadDSLop();
         }
 
@@ -64,11 +65,74 @@ namespace QLTTHT
             cbLopDay.DisplayMember = "TenLH";
         }
 
+        private void cbMTT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            if (cb.SelectedItem == null)
+                return;
+
+            MucThanhToan selected = cbMTT.SelectedItem as MucThanhToan;
+            mamucthanhtoan = selected.MaMTT;
+        }
+
+        private void cbLopDay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            if (cb.SelectedItem == null)
+                return;
+
+            LopHoc selected = cbLopDay.SelectedItem as LopHoc;
+            lbHocPhiLop.Text = LopHocDAO.Instance.GetHocPhi(selected.MaMHP).HP1Buoi.ToString();
+        }
+
         private void btnSuaHoSo_Click(object sender, EventArgs e)
         {
             int magv = Int32.Parse(lbID.Text);
             string hoten = txtHoTen.Text;
-           
+            DateTime ngaysinh;
+            DateTime.TryParse(dtpNgaySinh.Text, out ngaysinh);
+            string diachi = txtDiaChi.Text;
+            string sdt = txtSDT.Text;
+            string gioitinh = "";
+            if(rBNam.Checked == true)
+            {
+                gioitinh = "Nam";
+            }
+            else
+            {
+                gioitinh = "Nữ";
+            }
+            int mamtt = mamucthanhtoan;
+            
+            if (magv == 0 || hoten == "" || sdt == "" || diachi == "" || mamtt == 0 || gioitinh == "" || mamtt == 0)
+            {
+                MessageBox.Show("Xin Vui Lòng Điền Đầy Đủ Thông Tin");
+            }
+            else
+            {
+                if (GiaoVienDAO.Instance.UpdateGiaoVien(magv, hoten, ngaysinh, diachi, gioitinh, sdt, mamtt))
+                {
+                    MessageBox.Show("Chỉnh Sửa Thông Tin Giáo Viên Thành Công!");
+                }
+                else
+                {
+                    MessageBox.Show("Đã Có Lỗi Trong Quá Trình Chỉnh Sửa Thông Tin!");
+                }
+            }
+        }
+
+        private void btnXoaHoSo_Click(object sender, EventArgs e)
+        {
+            int magv = Int32.Parse(lbID.Text);
+
+            if (GiaoVienDAO.Instance.DeleteGiaoVien(magv))
+            {
+                MessageBox.Show("Đã Xóa Hồ Sơ Giáo Viên Thành Công!");
+            } else
+            {
+                MessageBox.Show("Đã Xảy Ra Lỗi Trong Quá Trình Xóa!");
+            }
+
         }
     }
 }

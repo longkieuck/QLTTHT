@@ -48,7 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnXoaHoSo = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.cbMTT = new System.Windows.Forms.ComboBox();
@@ -121,6 +121,7 @@
             this.cbLopDay.Name = "cbLopDay";
             this.cbLopDay.Size = new System.Drawing.Size(146, 21);
             this.cbLopDay.TabIndex = 48;
+            this.cbLopDay.SelectedIndexChanged += new System.EventHandler(this.cbLopDay_SelectedIndexChanged);
             // 
             // lbHocPhiLop
             // 
@@ -277,15 +278,16 @@
             this.label13.TabIndex = 54;
             this.label13.Text = "ID:";
             // 
-            // button4
+            // btnXoaHoSo
             // 
-            this.button4.Location = new System.Drawing.Point(405, 328);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 25);
-            this.button4.TabIndex = 56;
-            this.button4.Text = "Xoá hồ sơ";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnXoaHoSo.Location = new System.Drawing.Point(405, 328);
+            this.btnXoaHoSo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXoaHoSo.Name = "btnXoaHoSo";
+            this.btnXoaHoSo.Size = new System.Drawing.Size(91, 25);
+            this.btnXoaHoSo.TabIndex = 56;
+            this.btnXoaHoSo.Text = "Xoá hồ sơ";
+            this.btnXoaHoSo.UseVisualStyleBackColor = true;
+            this.btnXoaHoSo.Click += new System.EventHandler(this.btnXoaHoSo_Click);
             // 
             // button5
             // 
@@ -314,6 +316,7 @@
             this.cbMTT.Name = "cbMTT";
             this.cbMTT.Size = new System.Drawing.Size(121, 21);
             this.cbMTT.TabIndex = 59;
+            this.cbMTT.SelectedIndexChanged += new System.EventHandler(this.cbMTT_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -367,7 +370,7 @@
             this.Controls.Add(this.cbMTT);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnXoaHoSo);
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.button3);
@@ -420,7 +423,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnXoaHoSo;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ComboBox cbMTT;
