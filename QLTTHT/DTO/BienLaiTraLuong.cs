@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QLTrungTamHocThem_NhomLongThiepQuynhVan.DTO
+namespace QLTTHT.DTO
 {
     class BienLaiTraLuong
     {

@@ -1,4 +1,4 @@
-﻿using QLTrungTamHocThem_NhomLongThiepQuynhVan;
+﻿using QLTTHT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,8 @@ namespace QLTTHT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fLogin());
+            //Application.Run(new fLogin());
+            Application.Run(new fTeacher());
         }
     }
 }
