@@ -129,6 +129,12 @@
     <Compile Include="GUI\fTeacherInfo.designer.cs">
       <DependentUpon>fTeacherInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fPayrollReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fPayrollReceipt.Designer.cs">
+      <DependentUpon>fPayrollReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\fAddClass.resx">
@@ -163,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fTeacherInfo.resx">
       <DependentUpon>fTeacherInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fPayrollReceipt.resx">
+      <DependentUpon>fPayrollReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

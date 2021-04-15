@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnTraLuong = new System.Windows.Forms.Button();
             this.btnSuaHoSo = new System.Windows.Forms.Button();
             this.lbTongLuong = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -70,15 +70,16 @@
             this.button3.Text = "+";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnTraLuong
             // 
-            this.button2.Location = new System.Drawing.Point(572, 328);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 25);
-            this.button2.TabIndex = 52;
-            this.button2.Text = "Trả lương";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTraLuong.Location = new System.Drawing.Point(572, 328);
+            this.btnTraLuong.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTraLuong.Name = "btnTraLuong";
+            this.btnTraLuong.Size = new System.Drawing.Size(89, 25);
+            this.btnTraLuong.TabIndex = 52;
+            this.btnTraLuong.Text = "Trả lương";
+            this.btnTraLuong.UseVisualStyleBackColor = true;
+            this.btnTraLuong.Click += new System.EventHandler(this.btnTraLuong_Click);
             // 
             // btnSuaHoSo
             // 
@@ -238,10 +239,10 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(207, 25);
+            this.panel1.Location = new System.Drawing.Point(207, 11);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(391, 32);
+            this.panel1.Size = new System.Drawing.Size(391, 46);
             this.panel1.TabIndex = 33;
             // 
             // label1
@@ -259,11 +260,11 @@
             // lbID
             // 
             this.lbID.AutoSize = true;
-            this.lbID.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbID.Location = new System.Drawing.Point(187, 81);
             this.lbID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(17, 18);
+            this.lbID.Size = new System.Drawing.Size(16, 17);
             this.lbID.TabIndex = 55;
             this.lbID.Text = "0";
             // 
@@ -374,7 +375,7 @@
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnTraLuong);
             this.Controls.Add(this.btnSuaHoSo);
             this.Controls.Add(this.lbTongLuong);
             this.Controls.Add(this.label8);
@@ -404,7 +405,7 @@
         #endregion
 
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTraLuong;
         private System.Windows.Forms.Button btnSuaHoSo;
         private System.Windows.Forms.Label lbTongLuong;
         private System.Windows.Forms.Label label8;

@@ -15,7 +15,6 @@ namespace QLTTHT
     public partial class fTeacher : Form
     {
         BindingSource giaovienlist = new BindingSource();
-        public int MaGVSelected = -1;
 
         public fTeacher()
         {
@@ -57,7 +56,7 @@ namespace QLTTHT
 
         private void dtgvGiaoVien_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MaGVSelected = Int32.Parse(dtgvGiaoVien.CurrentRow.Cells["MaGV"].Value.ToString());          
+            int MaGVSelected = Int32.Parse(dtgvGiaoVien.CurrentRow.Cells["MaGV"].Value.ToString());          
 
             fTeacherInfo f = new fTeacherInfo(MaGVSelected);
             f.Show();

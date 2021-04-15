@@ -171,7 +171,7 @@ BEGIN
 	--Update luong cho giao vien
 	UPDATE BIENLAITRALUONG
 	SET LUONG = LUONG + @HP1BUOI*@TILE
-	WHERE MAGV=@MAGV
+	WHERE MAGV=@MAGV and DaThanhToan=0
 END
 GO
 
@@ -307,7 +307,7 @@ create proc InsertGiaoVien
 	@mk nchar(50)
 as
 begin
-	insert into TAIKHOAN values(@tk, @mk, 2)
+	insert into TAIKHOAN values(@tk, @mk, 1)
 	insert into GIAOVIEN(HoTen, SDT, NgaySinh, DiaChi, GioiTinh, MaMTT, TK) values(@hoten, @sdt, @ngaysinh, @diachi, @gioitinh, @mamtt, @tk)
 end
 go
@@ -343,9 +343,19 @@ end
 create proc DeleteGiaoVien
 	@magv int
 as
-begin
+begin				
 	delete GIAOVIEN
 	where MaGV = @magv
+end
+go
+
+create trigger DeleteTaiKhoanGV on GIAOVIEN
+after delete
+as
+begin
+	delete TAIKHOAN
+	where TK in (select TK
+				from deleted)
 end
 go
 
@@ -371,6 +381,75 @@ begin
 						from LOPHOC lh
 						where lh.MaLH = @malh)
 end
+go
 
-exec GetHocPhi 1
+create proc GetBLTLByMaGV
+	@magv int
+as
+begin
+	select *
+	from BIENLAITRALUONG
+	where DaThanhToan = 0
+end
+go
+
+CREATE FUNCTION [dbo].[GetDaThanhToan](@dathanhtoan INT) 
+RETURNS NVARCHAR(50)
+AS
+BEGIN 
+	declare @tinhtrang NVARCHAR(50);
+
+	if(@dathanhtoan = 1)
+		set @tinhtrang = N'Đã thanh toán'
+	else
+		set @tinhtrang = N'Chưa thanh toán'
+
+	return @tinhtrang;
+END
+GO
+
+CREATE PROC GETALLBTLTBYMAGV
+	@magv INT
+AS
+BEGIN
+	SELECT MaBLTL, NgayTra, Thang, Luong, [dbo].[GetDaThanhToan](DaThanhToan) as N'DaThanhToan'
+	FROM BIENLAITRALUONG
+	WHERE MaGV = @magv
+END
+GO
+
+CREATE PROC THANHTOANLUONG
+	@magv INT,
+	@ngaytra DATE
+AS
+BEGIN
+	UPDATE BIENLAITRALUONG
+	SET DaThanhToan = 1,
+		NgayTra = @ngaytra
+	WHERE MaGV = @magv
+END
+GO
+
+CREATE TRIGGER TAOBLTLMOI ON BIENLAITRALUONG
+AFTER UPDATE
+AS
+BEGIN
+	DECLARE @THANGMOI INT;
+	DECLARE @THANGCU INT;
+	DECLARE @MAGV INT;
+
+	SET @THANGCU = (SELECT Thang
+					FROM inserted)
+	
+	SET @MAGV = (SELECT MaGV
+					FROM inserted)
+
+	IF(@THANGCU < 12)
+		SET @THANGMOI = @THANGCU + 1
+	ELSE
+		SET @THANGMOI = 1
+
+	INSERT INTO BIENLAITRALUONG VALUES('',@THANGMOI,0,0,@MAGV)
+END
+GO
 ---------------------------------- . / Van -----------------------------------------------

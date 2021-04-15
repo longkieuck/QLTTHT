@@ -1,5 +1,6 @@
 ﻿using QLTTHT.DAO;
 using QLTTHT.DTO;
+using QLTTHT.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -133,6 +134,12 @@ namespace QLTTHT
                 MessageBox.Show("Đã Xảy Ra Lỗi Trong Quá Trình Xóa!");
             }
 
+        }
+
+        private void btnTraLuong_Click(object sender, EventArgs e)
+        {
+            fPayrollReceipt f = new fPayrollReceipt(magiaovien);
+            f.Show();
         }
     }
 }
