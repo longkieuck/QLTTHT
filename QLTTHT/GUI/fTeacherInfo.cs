@@ -36,6 +36,12 @@ namespace QLTTHT
             cbMTT.DisplayMember = "TiLe";
         }
 
+        public void LoadTongLuong()
+        {
+            List<BienLaiTraLuong> list = BienLaiTraLuongDAO.Instance.GetBLTLByMaGV(magiaovien);
+            lbTongLuong.Text = list[0].Luong.ToString();
+        }
+
         public void LoadThongTinGV()
         {
             LoadMucTT();
@@ -57,6 +63,7 @@ namespace QLTTHT
             }
             cbMTT.Text = MucThanhToanDAO.Instance.GetTiLeTT(gv.MaMTT).TiLe.ToString();
             LoadDSLop();
+            LoadTongLuong();
         }
 
         public void LoadDSLop()

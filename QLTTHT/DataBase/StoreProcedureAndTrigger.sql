@@ -93,21 +93,14 @@ END
 GO
 --Trigger khi giáo viên xoá bỏ lớp học thì đồng thời xoá các buổi học,
 --và các hocvien_lophoc của lớp học đó, cập nhật mức thanh toán.
-
 CREATE TRIGGER UPDATE_MUCTHANHTOAN2
-ON LOPHOC INSTEAD OF DELETE
+ON LOPHOC FOR DELETE
 AS
-BEGIN
-	DECLARE @MAGV INT;
-	SET @MAGV=(SELECT MaGV FROM DELETED)
-
-	DECLARE @MALH INT;
-	SET @MALH=(SELECT MALH FROM DELETED)
-	
+BEGIN	
 	DECLARE @SOLOP INT;
 	SET @SOLOP=(SELECT COUNT(*)
 				FROM LOPHOC
-			    WHERE MaGV = @MAGV
+			    WHERE MaGV IN (SELECT MaGV FROM deleted)
 				)
 	
 	IF(@SOLOP <=3)
@@ -115,20 +108,20 @@ BEGIN
 		DECLARE @MAMTT INT;
 		SET @MAMTT=(SELECT MAMTT
 					FROM GIAOVIEN
-					WHERE MaGV=@MAGV)
+					WHERE MaGV IN (SELECT MaLH FROM deleted))
 		UPDATE GIAOVIEN
 		SET MaMTT = GIAOVIEN.MaMTT - 1
-		WHERE MAGV = @MAGV
+		WHERE MAGV IN (SELECT MaLH FROM deleted)
 	END
 	
 	DELETE FROM HOCVIEN_LOPHOC
-	WHERE MaLH=@MALH
+	WHERE MaLH IN (SELECT MaLH FROM deleted)
 
 	DELETE FROM BUOIHOC
-	WHERE MaLH=@MALH
+	WHERE MaLH IN (SELECT MaLH FROM deleted)
 
 	DELETE FROM LOPHOC
-	WHERE MALH = @MALH
+	WHERE MALH IN (SELECT MaLH FROM deleted)
 END
 GO
 
@@ -312,6 +305,24 @@ begin
 end
 go
 
+-- Trigger tao bien lai thanh toan luong khi them giao vien moi
+CREATE TRIGGER TAO_BLTL_GVMOI ON GIAOVIEN
+AFTER INSERT
+AS
+BEGIN
+	DECLARE @NGAYHT DATE;
+	DECLARE @THANGHT INT;
+	DECLARE @MAGV INT;
+
+	SET @MAGV = (SELECT MaGV FROM inserted)
+	
+	SELECT @NGAYHT = GETDATE()
+
+	SELECT @THANGHT = MONTH (@NGAYHT)
+
+	INSERT INTO BIENLAITRALUONG VALUES('',@THANGHT,0,0,@MAGV)
+END
+GO
 -- Thu tuc dua ra danh sach lop hoc cua giao vien co id cu the
 create proc GetLopHocByMaGV
 	@magv int
@@ -338,26 +349,36 @@ begin
 	set HoTen=@hoten, SDT=@sdt, NgaySinh=@ngaysinh, DiaChi=@diachi, GioiTinh=@gioitinh, MaMTT=@mamtt
 	where MaGV = @magv
 end
-
+go
 -- Thu tuc xoa thong tin giao vien theo id
 create proc DeleteGiaoVien
 	@magv int
 as
-begin				
+begin
+	DELETE LOPHOC
+	WHERE MaGV in (select MaGV
+					from GIAOVIEN
+					where MaGV = @magv)
+
+	DELETE BIENLAITRALUONG
+	WHERE MaGV in (select MaGV
+					from GIAOVIEN
+					where MaGV = @magv)
+				
 	delete GIAOVIEN
 	where MaGV = @magv
 end
 go
 
-create trigger DeleteTaiKhoanGV on GIAOVIEN
-after delete
-as
-begin
-	delete TAIKHOAN
-	where TK in (select TK
-				from deleted)
-end
-go
+CREATE TRIGGER DELETE_TK ON GIAOVIEN
+AFTER DELETE
+AS
+BEGIN
+	DELETE TAIKHOAN
+	WHERE TK IN (SELECT TK
+				FROM deleted)
+END
+GO
 
 -- Thu tuc tim muc thanh toan theo mamtt
 create proc GetMucThanhToan
@@ -383,6 +404,7 @@ begin
 end
 go
 
+-- Ham lay BLTL chua thanh toan cua giao vien
 create proc GetBLTLByMaGV
 	@magv int
 as
@@ -393,6 +415,7 @@ begin
 end
 go
 
+-- Ham chuyen tinh trang thanh toan
 CREATE FUNCTION [dbo].[GetDaThanhToan](@dathanhtoan INT) 
 RETURNS NVARCHAR(50)
 AS
@@ -408,48 +431,44 @@ BEGIN
 END
 GO
 
+-- Thu tuc lay danh sach BLTL cua giao vien
 CREATE PROC GETALLBTLTBYMAGV
 	@magv INT
 AS
 BEGIN
+	DECLARE @SOBLTL INT;
 	SELECT MaBLTL, NgayTra, Thang, Luong, [dbo].[GetDaThanhToan](DaThanhToan) as N'DaThanhToan'
 	FROM BIENLAITRALUONG
 	WHERE MaGV = @magv
+
 END
 GO
-
+drop proc THANHTOANLUONG
+-- Thu tuc thanh toan luong giao vien
 CREATE PROC THANHTOANLUONG
 	@magv INT,
 	@ngaytra DATE
 AS
 BEGIN
+	DECLARE @THANGMOI INT;
+	DECLARE @THANGCU INT;
+
+	(SELECT @THANGCU = Thang FROM BIENLAITRALUONG WHERE DaThanhToan = 0 and MaGV = @magv)
+
 	UPDATE BIENLAITRALUONG
 	SET DaThanhToan = 1,
 		NgayTra = @ngaytra
-	WHERE MaGV = @magv
-END
-GO
-
-CREATE TRIGGER TAOBLTLMOI ON BIENLAITRALUONG
-AFTER UPDATE
-AS
-BEGIN
-	DECLARE @THANGMOI INT;
-	DECLARE @THANGCU INT;
-	DECLARE @MAGV INT;
-
-	SET @THANGCU = (SELECT Thang
-					FROM inserted)
-	
-	SET @MAGV = (SELECT MaGV
-					FROM inserted)
+	WHERE MaGV = @magv and DaThanhToan = 0
 
 	IF(@THANGCU < 12)
 		SET @THANGMOI = @THANGCU + 1
 	ELSE
 		SET @THANGMOI = 1
 
-	INSERT INTO BIENLAITRALUONG VALUES('',@THANGMOI,0,0,@MAGV)
+	INSERT INTO BIENLAITRALUONG VALUES('',@THANGMOI,0,0,@magv)
+
 END
 GO
+
+exec THANHTOANLUONG 3,'2021-05-16'
 ---------------------------------- . / Van -----------------------------------------------
