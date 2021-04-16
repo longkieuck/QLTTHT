@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnThemLop = new System.Windows.Forms.Button();
             this.btnTraLuong = new System.Windows.Forms.Button();
             this.btnSuaHoSo = new System.Windows.Forms.Button();
             this.lbTongLuong = new System.Windows.Forms.Label();
@@ -60,15 +60,16 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button3
+            // btnThemLop
             // 
-            this.button3.Location = new System.Drawing.Point(713, 161);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(17, 18);
-            this.button3.TabIndex = 53;
-            this.button3.Text = "+";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnThemLop.Location = new System.Drawing.Point(713, 161);
+            this.btnThemLop.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThemLop.Name = "btnThemLop";
+            this.btnThemLop.Size = new System.Drawing.Size(17, 18);
+            this.btnThemLop.TabIndex = 53;
+            this.btnThemLop.Text = "+";
+            this.btnThemLop.UseVisualStyleBackColor = true;
+            this.btnThemLop.Click += new System.EventHandler(this.btnThemLop_Click);
             // 
             // btnTraLuong
             // 
@@ -374,7 +375,7 @@
             this.Controls.Add(this.btnXoaHoSo);
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnThemLop);
             this.Controls.Add(this.btnTraLuong);
             this.Controls.Add(this.btnSuaHoSo);
             this.Controls.Add(this.lbTongLuong);
@@ -404,7 +405,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnThemLop;
         private System.Windows.Forms.Button btnTraLuong;
         private System.Windows.Forms.Button btnSuaHoSo;
         private System.Windows.Forms.Label lbTongLuong;

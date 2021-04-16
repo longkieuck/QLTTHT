@@ -411,7 +411,7 @@ as
 begin
 	select *
 	from BIENLAITRALUONG
-	where DaThanhToan = 0
+	where DaThanhToan = 0 and MaGV = @magv
 end
 go
 
@@ -443,7 +443,7 @@ BEGIN
 
 END
 GO
-drop proc THANHTOANLUONG
+
 -- Thu tuc thanh toan luong giao vien
 CREATE PROC THANHTOANLUONG
 	@magv INT,
@@ -470,5 +470,56 @@ BEGIN
 END
 GO
 
-exec THANHTOANLUONG 3,'2021-05-16'
+-- Thu tuc them, sua , xoa lop hoc cho 1 giao vien
+CREATE PROC THEMLH
+	@TenLH NVARCHAR(50),
+	@MaMHP INT,
+	@MaMH INT,
+	@MaGV INT
+AS
+BEGIN
+	INSERT INTO LOPHOC VALUES(@TenLH,@MaMHP,@MaMH,@MaGV)
+END
+GO
+
+CREATE PROC XOALH
+	@MaLH INT
+AS
+BEGIN
+	DELETE LOPHOC
+	WHERE MaLH = @MaLH
+END
+GO
+
+CREATE PROC SUALH
+	@MaLH INT,
+	@TenLH NVARCHAR(50),
+	@MaMHP INT,
+	@MaMH INT
+AS
+BEGIN
+	UPDATE LOPHOC
+	SET TenLH = @TenLH,
+		MaMHP = @MaMHP,
+		MaMH = @MaMH
+	WHERE MaLH = @MaLH
+END
+GO
+
+-- Thu tuc lay danh sach mon hoc
+CREATE PROC GETALLMONHOC
+AS
+BEGIN
+	SELECT *
+	FROM MONHOC
+END
+GO
+-- Thu tuc lay danh sach muc hoc phi
+CREATE PROC GETALLMUCHP
+AS
+BEGIN
+	SELECT *
+	FROM MUCHOCPHI
+END
+GO
 ---------------------------------- . / Van -----------------------------------------------

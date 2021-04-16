@@ -36,5 +36,11 @@ namespace QLTTHT.DAO
             MucHocPhi gv = new MucHocPhi(data.Rows[0]);
             return gv;
         }
+
+        public bool ThemLopChoGiaoVien(string tenlop, int mamonhoc, int mamhp, int magv)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec THEMLH @TenLH , @MaMHP , @MaMH , @MaGV", new object[] { tenlop, mamhp, mamonhoc, magv });
+            return result > 0;
+        }
     }
 }

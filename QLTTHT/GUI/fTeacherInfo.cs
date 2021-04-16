@@ -148,5 +148,11 @@ namespace QLTTHT
             fPayrollReceipt f = new fPayrollReceipt(magiaovien);
             f.Show();
         }
+
+        private void btnThemLop_Click(object sender, EventArgs e)
+        {
+            fAddClassForTeacher f = new fAddClassForTeacher(magiaovien);
+            f.Show();
+        }
     }
 }

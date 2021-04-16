@@ -49,6 +49,8 @@
     <Compile Include="DAO\BienLaiTraLuongDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\LopHocDAO.cs" />
+    <Compile Include="DAO\MonHocDAO.cs" />
+    <Compile Include="DAO\MucHocPhiDAO.cs" />
     <Compile Include="DAO\MucThanhToanDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\GiaoVienDAO.cs" />
@@ -69,6 +71,12 @@
     </Compile>
     <Compile Include="GUI\fAddClass.designer.cs">
       <DependentUpon>fAddClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fAddClassForTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fAddClassForTeacher.Designer.cs">
+      <DependentUpon>fAddClassForTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fAddStudent.cs">
       <SubType>Form</SubType>
@@ -140,6 +148,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\fAddClass.resx">
       <DependentUpon>fAddClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fAddClassForTeacher.resx">
+      <DependentUpon>fAddClassForTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fAddStudent.resx">
       <DependentUpon>fAddStudent.cs</DependentUpon>
