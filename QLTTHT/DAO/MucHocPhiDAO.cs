@@ -28,5 +28,12 @@ namespace QLTTHT.DAO
             }
             return list;
         }
+
+        public float GetMucHocPhi(int mamhp)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GETMAMUCHOCPHI @MAMHP", new object[] { mamhp });
+            MucHocPhi mhp = new MucHocPhi(data.Rows[0]);
+            return mhp.HP1Buoi;
+        }
     }
 }

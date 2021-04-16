@@ -522,4 +522,64 @@ BEGIN
 	FROM MUCHOCPHI
 END
 GO
+
+-- Thu tuc tim lop hoc theo ma lop hoc
+CREATE PROC GETLOPHOC
+	@MALH INT
+AS
+BEGIN
+	SELECT *
+	FROM LOPHOC
+	WHERE MaLH = @MALH
+END
+GO
+
+-- Thu tuc tim mon hoc theo ma
+CREATE PROC GETMONHOC
+	@MAMH INT
+AS
+BEGIN
+	SELECT *
+	FROM MONHOC
+	WHERE MaMH = @MAMH
+END
+GO
+
+-- Thu tuc tim muc hoc phi theo ma
+CREATE PROC GETMAMUCHOCPHI
+	@MAMHP INT
+AS
+BEGIN
+	SELECT *
+	FROM MUCHOCPHI
+	WHERE MaMHP = @MAMHP
+END
+GO
+
+drop proc GETMAMONHOC
+DROP PROC GETMAMHP
+-- Thu tuc tim ma mon hoc cua lop hoc theo ten mon hoc
+CREATE PROC GETMAMONHOC
+	@TENMH NVARCHAR(50)
+AS
+BEGIN
+	SELECT * 
+	FROM MONHOC 
+	WHERE TenMH = @TENMH
+END
+GO
+
+-- Thu tuc tim ma muc hoc phi cua lop hoc
+CREATE PROC GETMAMHP
+	@HP1BUOI FLOAT
+AS
+BEGIN
+	SELECT * 
+	FROM MUCHOCPHI 
+	WHERE HP1Buoi = @HP1BUOI
+
+END
+GO
+
+GETMAMONHOC 'Toán'
 ---------------------------------- . / Van -----------------------------------------------

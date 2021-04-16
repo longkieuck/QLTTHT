@@ -102,6 +102,12 @@
     <Compile Include="GUI\fClassRegistration.designer.cs">
       <DependentUpon>fClassRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fDeleteClassForTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fDeleteClassForTeacher.Designer.cs">
+      <DependentUpon>fDeleteClassForTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,12 @@
     <Compile Include="GUI\fPayrollReceipt.Designer.cs">
       <DependentUpon>fPayrollReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fUpdateClassForTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fUpdateClassForTeacher.Designer.cs">
+      <DependentUpon>fUpdateClassForTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\fAddClass.resx">
@@ -163,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fClassRegistration.resx">
       <DependentUpon>fClassRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fDeleteClassForTeacher.resx">
+      <DependentUpon>fDeleteClassForTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
@@ -184,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fPayrollReceipt.resx">
       <DependentUpon>fPayrollReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fUpdateClassForTeacher.resx">
+      <DependentUpon>fUpdateClassForTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

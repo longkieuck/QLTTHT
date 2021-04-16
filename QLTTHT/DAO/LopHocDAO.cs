@@ -42,5 +42,43 @@ namespace QLTTHT.DAO
             int result = DataProvider.Instance.ExecuteNonQuery("exec THEMLH @TenLH , @MaMHP , @MaMH , @MaGV", new object[] { tenlop, mamhp, mamonhoc, magv });
             return result > 0;
         }
+
+        public List<LopHoc> GetLopHocByMaLH(int malophoc)
+        {
+            List<LopHoc> list = new List<LopHoc>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GETLOPHOC @MALH", new object[] { malophoc });
+            foreach (DataRow item in data.Rows)
+            {
+                LopHoc entry = new LopHoc(item);
+                list.Add(entry);
+            }
+            return list;
+        }
+
+        public bool SuaLopChoGiaoVien(int malophoc, string tenlophoc, int mamhp, int mamh)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec SUALH @MaLH , @TenLH , @MaMHP , @MaMH", new object[] { malophoc, tenlophoc, mamhp, mamh });
+            return result > 0;
+        }
+
+        public bool XoaLopChoGiaoVien(int malh)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec XOALH @MALH", new object[] { malh });
+            return result > 0;
+        }
+
+        public int GetMaMonHoc(string tenmonhoc)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GETMAMONHOC @TENMH", new object[] { tenmonhoc });
+            MonHoc mh = new MonHoc(data.Rows[0]);
+            return mh.MaMH;
+        }
+
+        public int GetMaMHP(float hp1buoi)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GETMAMHP @HP1BUOI", new object[] { hp1buoi });
+            MucHocPhi mh = new MucHocPhi(data.Rows[0]);
+            return mh.MaMHP;
+        }
     }
 }

@@ -28,5 +28,12 @@ namespace QLTTHT.DAO
             }
             return list;
         }
+
+        public string GetTenMonHoc(int mamonhoc)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GETMONHOC @MAMH", new object[] { mamonhoc });
+            MonHoc mh = new MonHoc(data.Rows[0]);
+            return mh.TenMH;
+        }
     }
 }

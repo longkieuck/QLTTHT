@@ -14,8 +14,8 @@ namespace QLTTHT.GUI
     public partial class fAddClassForTeacher : Form
     {
         public int magv;
-        private int mamh;
-        private int mamuchp;
+        public int mamh;
+        public int mamuchp;
 
         public fAddClassForTeacher()
         {
@@ -49,7 +49,7 @@ namespace QLTTHT.GUI
             cbMucHocPhi.DisplayMember = "HP1Buoi";
         }
 
-        private void cbMonHoc_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbMonHoc_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             ComboBox cb = sender as ComboBox;
             if (cb.SelectedItem == null)
@@ -59,7 +59,7 @@ namespace QLTTHT.GUI
             mamh = selected.MaMH;
         }
 
-        private void cbMucHocPhi_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbMucHocPhi_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             ComboBox cb = sender as ComboBox;
             if (cb.SelectedItem == null)
@@ -69,18 +69,20 @@ namespace QLTTHT.GUI
             mamuchp = selected.MaMHP;
         }
 
-        private void btnThemLop_Click(object sender, EventArgs e)
+        private void btnThemLop_Click_1(object sender, EventArgs e)
         {
             string tenlop = txtTenLop.Text;
-            if (LopHocDAO.Instance.ThemLopChoGiaoVien(tenlop,mamh,mamuchp,magv))
+            if (LopHocDAO.Instance.ThemLopChoGiaoVien(tenlop, mamh, mamuchp, magv))
             {
                 MessageBox.Show("Thêm Lớp Thành Công!");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Đã Có Lỗi Xảy Ra Trong Quá Trình Thêm Lớp!");
             }
-
         }
+
+
     }
 }

@@ -49,14 +49,15 @@
             this.lbID = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnXoaHoSo = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnSuaLop = new System.Windows.Forms.Button();
+            this.btnXoaLop = new System.Windows.Forms.Button();
             this.cbMTT = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.btnXem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             // 
             // btnTraLuong
             // 
-            this.btnTraLuong.Location = new System.Drawing.Point(572, 328);
+            this.btnTraLuong.Location = new System.Drawing.Point(572, 327);
             this.btnTraLuong.Margin = new System.Windows.Forms.Padding(2);
             this.btnTraLuong.Name = "btnTraLuong";
             this.btnTraLuong.Size = new System.Drawing.Size(89, 25);
@@ -84,7 +85,7 @@
             // 
             // btnSuaHoSo
             // 
-            this.btnSuaHoSo.Location = new System.Drawing.Point(232, 328);
+            this.btnSuaHoSo.Location = new System.Drawing.Point(133, 329);
             this.btnSuaHoSo.Margin = new System.Windows.Forms.Padding(2);
             this.btnSuaHoSo.Name = "btnSuaHoSo";
             this.btnSuaHoSo.Size = new System.Drawing.Size(91, 25);
@@ -282,7 +283,7 @@
             // 
             // btnXoaHoSo
             // 
-            this.btnXoaHoSo.Location = new System.Drawing.Point(405, 328);
+            this.btnXoaHoSo.Location = new System.Drawing.Point(284, 329);
             this.btnXoaHoSo.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaHoSo.Name = "btnXoaHoSo";
             this.btnXoaHoSo.Size = new System.Drawing.Size(91, 25);
@@ -291,25 +292,27 @@
             this.btnXoaHoSo.UseVisualStyleBackColor = true;
             this.btnXoaHoSo.Click += new System.EventHandler(this.btnXoaHoSo_Click);
             // 
-            // button5
+            // btnSuaLop
             // 
-            this.button5.Location = new System.Drawing.Point(734, 161);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(17, 18);
-            this.button5.TabIndex = 57;
-            this.button5.Text = "e";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnSuaLop.Location = new System.Drawing.Point(734, 161);
+            this.btnSuaLop.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSuaLop.Name = "btnSuaLop";
+            this.btnSuaLop.Size = new System.Drawing.Size(17, 18);
+            this.btnSuaLop.TabIndex = 57;
+            this.btnSuaLop.Text = "e";
+            this.btnSuaLop.UseVisualStyleBackColor = true;
+            this.btnSuaLop.Click += new System.EventHandler(this.btnSuaLop_Click);
             // 
-            // button6
+            // btnXoaLop
             // 
-            this.button6.Location = new System.Drawing.Point(756, 161);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(17, 18);
-            this.button6.TabIndex = 58;
-            this.button6.Text = "x";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnXoaLop.Location = new System.Drawing.Point(756, 161);
+            this.btnXoaLop.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXoaLop.Name = "btnXoaLop";
+            this.btnXoaLop.Size = new System.Drawing.Size(17, 18);
+            this.btnXoaLop.TabIndex = 58;
+            this.btnXoaLop.Text = "x";
+            this.btnXoaLop.UseVisualStyleBackColor = true;
+            this.btnXoaLop.Click += new System.EventHandler(this.btnXoaLop_Click);
             // 
             // cbMTT
             // 
@@ -359,19 +362,30 @@
             this.dtpNgaySinh.Size = new System.Drawing.Size(185, 20);
             this.dtpNgaySinh.TabIndex = 65;
             // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(439, 328);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(83, 26);
+            this.btnXem.TabIndex = 66;
+            this.btnXem.Text = "Xem";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            // 
             // fTeacherInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 377);
+            this.Controls.Add(this.btnXem);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.txtHoTen);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.cbMTT);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnXoaLop);
+            this.Controls.Add(this.btnSuaLop);
             this.Controls.Add(this.btnXoaHoSo);
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.label13);
@@ -426,13 +440,14 @@
         private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnXoaHoSo;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnSuaLop;
+        private System.Windows.Forms.Button btnXoaLop;
         private System.Windows.Forms.ComboBox cbMTT;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
+        private System.Windows.Forms.Button btnXem;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace QLTTHT.GUI
 {
-    partial class fAddClassForTeacher
+    partial class fUpdateClassForTeacher
     {
         /// <summary>
         /// Required designer variable.
@@ -29,52 +29,58 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnThemLop = new System.Windows.Forms.Button();
             this.cbMucHocPhi = new System.Windows.Forms.ComboBox();
+            this.cbMonHoc = new System.Windows.Forms.ComboBox();
+            this.btnSuaThongTin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenLop = new System.Windows.Forms.TextBox();
-            this.cbMonHoc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnThemLop);
             this.groupBox1.Controls.Add(this.cbMucHocPhi);
+            this.groupBox1.Controls.Add(this.cbMonHoc);
+            this.groupBox1.Controls.Add(this.btnSuaThongTin);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtTenLop);
-            this.groupBox1.Controls.Add(this.cbMonHoc);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(31, 25);
+            this.groupBox1.Location = new System.Drawing.Point(26, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(389, 263);
-            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông Tin Lớp Học";
-            // 
-            // btnThemLop
-            // 
-            this.btnThemLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemLop.Location = new System.Drawing.Point(157, 207);
-            this.btnThemLop.Name = "btnThemLop";
-            this.btnThemLop.Size = new System.Drawing.Size(121, 33);
-            this.btnThemLop.TabIndex = 13;
-            this.btnThemLop.Text = "Thêm Lớp";
-            this.btnThemLop.UseVisualStyleBackColor = true;
-            this.btnThemLop.Click += new System.EventHandler(this.btnThemLop_Click_1);
+            this.groupBox1.Text = "Thông Tin Lớp Học Chỉnh Sửa";
             // 
             // cbMucHocPhi
             // 
-            this.cbMucHocPhi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMucHocPhi.FormattingEnabled = true;
-            this.cbMucHocPhi.Location = new System.Drawing.Point(157, 148);
+            this.cbMucHocPhi.Location = new System.Drawing.Point(157, 150);
             this.cbMucHocPhi.Name = "cbMucHocPhi";
-            this.cbMucHocPhi.Size = new System.Drawing.Size(121, 24);
-            this.cbMucHocPhi.TabIndex = 12;
-            this.cbMucHocPhi.SelectedIndexChanged += new System.EventHandler(this.cbMucHocPhi_SelectedIndexChanged_1);
+            this.cbMucHocPhi.Size = new System.Drawing.Size(121, 21);
+            this.cbMucHocPhi.TabIndex = 15;
+            // 
+            // cbMonHoc
+            // 
+            this.cbMonHoc.FormattingEnabled = true;
+            this.cbMonHoc.Location = new System.Drawing.Point(157, 99);
+            this.cbMonHoc.Name = "cbMonHoc";
+            this.cbMonHoc.Size = new System.Drawing.Size(145, 21);
+            this.cbMonHoc.TabIndex = 14;
+            // 
+            // btnSuaThongTin
+            // 
+            this.btnSuaThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuaThongTin.Location = new System.Drawing.Point(157, 207);
+            this.btnSuaThongTin.Name = "btnSuaThongTin";
+            this.btnSuaThongTin.Size = new System.Drawing.Size(121, 33);
+            this.btnSuaThongTin.TabIndex = 13;
+            this.btnSuaThongTin.Text = "Sửa Thông Tin";
+            this.btnSuaThongTin.UseVisualStyleBackColor = true;
+            this.btnSuaThongTin.Click += new System.EventHandler(this.btnSuaThongTin_Click);
             // 
             // label3
             // 
@@ -104,16 +110,6 @@
             this.txtTenLop.Size = new System.Drawing.Size(216, 22);
             this.txtTenLop.TabIndex = 9;
             // 
-            // cbMonHoc
-            // 
-            this.cbMonHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMonHoc.FormattingEnabled = true;
-            this.cbMonHoc.Location = new System.Drawing.Point(157, 91);
-            this.cbMonHoc.Name = "cbMonHoc";
-            this.cbMonHoc.Size = new System.Drawing.Size(144, 24);
-            this.cbMonHoc.TabIndex = 8;
-            this.cbMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbMonHoc_SelectedIndexChanged_1);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -124,15 +120,15 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Tên Lớp";
             // 
-            // fAddClassForTeacher
+            // fUpdateClassForTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 317);
+            this.ClientSize = new System.Drawing.Size(451, 303);
             this.Controls.Add(this.groupBox1);
-            this.Name = "fAddClassForTeacher";
+            this.Name = "fUpdateClassForTeacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fAddClassForTeacher";
+            this.Text = "UpdateClassForTeacher";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -142,12 +138,12 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnThemLop;
-        private System.Windows.Forms.ComboBox cbMucHocPhi;
+        private System.Windows.Forms.Button btnSuaThongTin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTenLop;
-        private System.Windows.Forms.ComboBox cbMonHoc;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbMucHocPhi;
+        private System.Windows.Forms.ComboBox cbMonHoc;
     }
 }

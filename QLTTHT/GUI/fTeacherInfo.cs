@@ -16,6 +16,7 @@ namespace QLTTHT
     public partial class fTeacherInfo : Form
     {
         public int magiaovien;
+        public int malophoc;
         int mamucthanhtoan;
         public fTeacherInfo()
         {
@@ -90,7 +91,8 @@ namespace QLTTHT
                 return;
 
             LopHoc selected = cbLopDay.SelectedItem as LopHoc;
-            lbHocPhiLop.Text = LopHocDAO.Instance.GetHocPhi(selected.MaMHP).HP1Buoi.ToString();
+            lbHocPhiLop.Text = LopHocDAO.Instance.GetHocPhi(selected.MaLH).HP1Buoi.ToString();
+            malophoc = selected.MaLH;
         }
 
         private void btnSuaHoSo_Click(object sender, EventArgs e)
@@ -153,6 +155,23 @@ namespace QLTTHT
         {
             fAddClassForTeacher f = new fAddClassForTeacher(magiaovien);
             f.Show();
+        }
+
+        private void btnSuaLop_Click(object sender, EventArgs e)
+        {
+            fUpdateClassForTeacher f = new fUpdateClassForTeacher(malophoc);
+            f.Show();
+        }
+
+        private void btnXoaLop_Click(object sender, EventArgs e)
+        {
+            fDeleteClassForTeacher f = new fDeleteClassForTeacher(malophoc);
+            f.Show();
+        }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            LoadThongTinGV();
         }
     }
 }
