@@ -171,7 +171,7 @@ BEGIN
 	--Update luong cho giao vien
 	UPDATE BIENLAITRALUONG
 	SET LUONG = LUONG + @HP1BUOI*@TILE
-	WHERE MAGV=@MAGV
+	WHERE MAGV=@MAGV and DaThanhToan=0
 END
 GO
 
@@ -361,7 +361,7 @@ end
 go
 
 -- Thu tuc tim hoc phi lop theo ma lop
-create proc GetHocPhi
+create proc GetSoBuoiHoc
 	@malh int
 as
 begin
