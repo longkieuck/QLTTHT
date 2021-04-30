@@ -157,15 +157,25 @@ BEGIN
 	SET @TILE=(SELECT TILE FROM GIAOVIEN AS GV,MUCTHANHTOAN AS M
 			   WHERE GV.MAGV=@MAGV AND GV.MAMTT=M.MAMTT
 			   )
-	--Update hoc phi cho hoc vien
-	UPDATE BIENLAITHUHOCPHI
-	SET HocPhi = HocPhi + @MUCUUDAI*@HP1BUOI
-	WHERE MaHV=@MAHV
+	--Update hoc phi cho hoc vien neu da ton tai bien lai thi cap nhat vao bien lai
+	--neu chua ton tai bien lai thi them moi bien lai
+	IF EXISTS (SELECT * FROM BIENLAITHUHOCPHI WHERE MaHV=@MAHV and Thang=MONTH(GETDATE())) 
+	BEGIN
+		UPDATE BIENLAITHUHOCPHI
+		SET HocPhi = HocPhi + @MUCUUDAI*@HP1BUOI
+		WHERE MaHV=@MAHV and Thang=MONTH(GETDATE())
+	END
+	ELSE
+	BEGIN
+		Insert into BIENLAITHUHOCPHI(Thang,HocPhi,DaThanhToan,MaHV)
+		Values(MONTH(GETDATE()),@MUCUUDAI*@HP1BUOI,0,@MAHV)
+	END
 	--Update luong cho giao vien
 	UPDATE BIENLAITRALUONG
 	SET LUONG = LUONG + @HP1BUOI*@TILE
 	WHERE MAGV=@MAGV and DaThanhToan=0
 END
+GO
 GO
 
 --SP Login
@@ -277,7 +287,7 @@ begin
 						from GIAOVIEN gv
 						where gv.MaGV = @magv)
 end
-
+go
 -- Thu tuc tim giao vien theo magv
 create proc GetGiaoVien
 	@magv int
@@ -287,7 +297,7 @@ begin
 	from GIAOVIEN
 	where MaGV = @magv
 end
-
+go
 -- Thu tuc them giao vien
 create proc InsertGiaoVien
 	@hoten nvarchar(50),
@@ -558,6 +568,7 @@ GO
 
 drop proc GETMAMONHOC
 DROP PROC GETMAMHP
+go
 -- Thu tuc tim ma mon hoc cua lop hoc theo ten mon hoc
 CREATE PROC GETMAMONHOC
 	@TENMH NVARCHAR(50)
