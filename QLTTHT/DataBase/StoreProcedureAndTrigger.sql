@@ -374,3 +374,82 @@ end
 
 exec GetHocPhi 1
 ---------------------------------- . / Van -----------------------------------------------
+
+---------------------------------- . / Thiep -----------------------------------------------
+go
+
+-- Lấy Danh sách lớp học
+CREATE PROCEDURE SP_LopHoc_GetAll
+AS
+BEGIN
+  SELECT *
+  FROM LOPHOC
+END
+GO
+
+-- Lấy Danh sách Học Viên + Học Phí
+CREATE PROCEDURE SP_HocVien_GetAll
+@MaLH INT
+AS
+BEGIN
+  SELECT HV.* 
+  FROM HOCVIEN AS HV, LOPHOC AS LH, HOCVIEN_LOPHOC AS HV_LH
+  WHERE
+		HV.MaHV = HV_LH.MaHV 
+		AND HV_LH.MaLH = LH.MaLH
+		AND LH.MaLH = @MaLH
+END
+GO
+
+
+CREATE PROCEDURE ThongKeBuoiHocTheoLop
+@MaLH INT
+AS
+BEGIN
+	SELECT thongke.mahv as N'Mã Học Viên',thongke.hoten as N'Họ Tên',thongke.ngaysinh as N'Ngày Sinh',
+		   thongke.GioiTinh as N'Giới Tính',count(thongke.MaBh) as N'Tổng số buổi'
+	FROM
+	(SELECT hv.MaHV,hv.HoTen,hv.NgaySinh,hv.GioiTinh,hv.MaMUD, dd.MaBH
+	FROM HOCVIEN as hv,DIEMDANH as dd,BUOIHOC as bh
+	WHERE hv.MaHV = dd.MaHV and dd.MaBH=bh.MaBH and bh.MaLH = @MaLH) as thongke
+	GROUP BY thongke.mahv,thongke.hoten,thongke.ngaysinh, thongke.GioiTinh
+END
+
+ThongKeBuoiHocTheoLop '1'
+
+go
+
+CREATE PROCEDURE BuoiHocVuaThem
+@MaLH INT
+AS
+BEGIN
+select top 1
+	MaBH
+from BuoiHoc as bh
+WHERE bh.MaLH = @MaLH
+order by MaBh desc
+END
+
+go
+
+CREATE PROCEDURE SP_Insert_BuoiHoc
+@ThoiGian DATE,
+@MaLH INT
+AS
+BEGIN
+	INSERT INTO BUOIHOC(ThoiGian, MaLH)
+	VALUES (@ThoiGian, @MaLH)
+END
+GO
+
+CREATE PROCEDURE SP_Insert_DiemDanh
+@MaBH INT,
+@MaHV INT
+AS
+BEGIN
+	INSERT INTO DIEMDANH(MaBH, MaHV)
+	VALUES (@MaBH, @MaHV)
+END
+GO
+
+---------------------------------- . / Thiep -----------------------------------------------

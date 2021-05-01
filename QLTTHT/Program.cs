@@ -17,8 +17,9 @@ namespace QLTTHT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fLogin());
+            //Application.Run(new fLogin());
             //Application.Run(new fTeacher());
+            Application.Run(new fClass());
         }
     }
 }

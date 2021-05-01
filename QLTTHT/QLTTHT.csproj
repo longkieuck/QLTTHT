@@ -46,11 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\BuoiHocDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\DiemDanhDAO.cs" />
+    <Compile Include="DAO\GiaoVienDAO.cs" />
+    <Compile Include="DAO\HocVienDAO.cs" />
     <Compile Include="DAO\LopHocDAO.cs" />
     <Compile Include="DAO\MucThanhToanDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
-    <Compile Include="DAO\GiaoVienDAO.cs" />
     <Compile Include="DTO\BienLaiThuHocPhi.cs" />
     <Compile Include="DTO\BienLaiTraLuong.cs" />
     <Compile Include="DTO\BuoiHoc.cs" />

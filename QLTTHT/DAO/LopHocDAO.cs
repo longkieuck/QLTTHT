@@ -1,10 +1,11 @@
-﻿using QLTTHT.DTO;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QLTTHT.DTO;
 
 namespace QLTTHT.DAO
 {
@@ -12,10 +13,21 @@ namespace QLTTHT.DAO
     {
         private static LopHocDAO instance;
 
-        public static LopHocDAO Instance
+        internal static LopHocDAO Instance
         {
             get { if (instance == null) instance = new LopHocDAO(); return instance; }
             private set { instance = value; }
+        }
+        public List<LopHoc> GetAll()
+        {
+            List<LopHoc> list = new List<LopHoc>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SP_LopHoc_GetAll");
+            foreach (DataRow item in data.Rows)
+            {
+                LopHoc entry = new LopHoc(item);
+                list.Add(entry);
+            }
+            return list;
         }
 
         public List<LopHoc> GetLopHocByMaGV(int magv)
@@ -36,5 +48,7 @@ namespace QLTTHT.DAO
             MucHocPhi gv = new MucHocPhi(data.Rows[0]);
             return gv;
         }
+
+
     }
 }
