@@ -31,9 +31,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnThemHV = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             this.txtTimKiemHV = new System.Windows.Forms.TextBox();
             this.dgvHocVien = new System.Windows.Forms.DataGridView();
+            this.btnCapNhat = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).BeginInit();
             this.SuspendLayout();
@@ -70,15 +71,16 @@
             this.btnThemHV.UseVisualStyleBackColor = true;
             this.btnThemHV.Click += new System.EventHandler(this.btnThemHV_Click);
             // 
-            // button2
+            // btnTimKiem
             // 
-            this.button2.Location = new System.Drawing.Point(709, 76);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(62, 22);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Tìm kiếm";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Location = new System.Drawing.Point(709, 76);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(62, 22);
+            this.btnTimKiem.TabIndex = 5;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtTimKiemHV
             // 
@@ -100,22 +102,34 @@
             this.dgvHocVien.RowTemplate.Height = 28;
             this.dgvHocVien.Size = new System.Drawing.Size(745, 311);
             this.dgvHocVien.TabIndex = 9;
+            this.dgvHocVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocVien_CellContentClick);
+            this.dgvHocVien.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocVien_CellDoubleClick);
+            // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Location = new System.Drawing.Point(152, 76);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
+            this.btnCapNhat.TabIndex = 10;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // fStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.dgvHocVien);
             this.Controls.Add(this.txtTimKiemHV);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.btnThemHV);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fStudent";
-            this.Load += new System.EventHandler(this.fStudent_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).EndInit();
@@ -129,8 +143,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThemHV;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.TextBox txtTimKiemHV;
         private System.Windows.Forms.DataGridView dgvHocVien;
+        private System.Windows.Forms.Button btnCapNhat;
     }
 }

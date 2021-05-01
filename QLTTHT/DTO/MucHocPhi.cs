@@ -10,12 +10,12 @@ namespace QLTTHT.DTO
     class MucHocPhi
     {
         public int MaMHP { set; get; }
-        public float MucUuDai { set; get; }
+        public float HP1Buoi { set; get; }
         public MucHocPhi() { }
         public MucHocPhi(DataRow datarow)
         {
             this.MaMHP = Int32.Parse(datarow["MaMHP"].ToString());
-            this.MucUuDai = float.Parse(datarow["MucUuDai"].ToString());
+            this.HP1Buoi = float.Parse(datarow["HP1Buoi"].ToString());
         }
     }
 }

@@ -15,7 +15,7 @@ namespace QLTTHT.DTO
         public DateTime  NgaySinh { set; get; }
         public string DiaChi { set; get; }
         public string GioiTinh { set; get; }
-        public float MaMUD { set; get; }
+        public int MaMUD { set; get; }
         
         public HocVien() { }
         public HocVien(DataRow dataRow)
@@ -26,7 +26,7 @@ namespace QLTTHT.DTO
             this.NgaySinh = DateTime.Parse(dataRow["NgaySinh"].ToString());
             this.DiaChi = dataRow["DiaChi"].ToString();
             this.GioiTinh =dataRow["GioiTinh"].ToString();
-            this.MaMUD = float.Parse(dataRow["MaMUD"].ToString());
+            this.MaMUD = Int32.Parse(dataRow["MaMUD"].ToString());
         }
 
     }

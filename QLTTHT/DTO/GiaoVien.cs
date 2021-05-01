@@ -14,19 +14,23 @@ namespace QLTTHT.DTO
         public string SDT { set; get; }
         public DateTime NgaySinh { set; get; }
         public string DiaChi { set; get; }
-        public int GioiTinh { set; get; }
-        public int MaMHP { set; get; }
+        public string GioiTinh { set; get; }
+        public int MaMTT { set; get; }
+        public string MaTK { set; get; }
+       
 
         public GiaoVien() { }
         public GiaoVien(DataRow dataRow)
         {
-            this.MaGV = Int32.Parse(dataRow["MaHV"].ToString());
+            this.MaGV = Int32.Parse(dataRow["MaGV"].ToString());
             this.HoTen = dataRow["HoTen"].ToString();
             this.SDT = dataRow["SDT"].ToString();
             this.NgaySinh = DateTime.Parse(dataRow["NgaySinh"].ToString());
             this.DiaChi = dataRow["DiaChi"].ToString();
-            this.GioiTinh = Int32.Parse(dataRow["GioiTinh"].ToString());
-            this.MaMHP = Int32.Parse(dataRow["MaMHP"].ToString());
+            this.GioiTinh = dataRow["GioiTinh"].ToString();
+            this.MaMTT = Int32.Parse(dataRow["MaMTT"].ToString());
+            this.MaTK = dataRow["TK"].ToString();
+           
         }
     }
 }
