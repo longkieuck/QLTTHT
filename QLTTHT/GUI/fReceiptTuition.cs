@@ -38,19 +38,18 @@ namespace QLTTHT.GUI
         {
             List<BienLaiThuHocPhi> list = new List<BienLaiThuHocPhi>();
             list = BienLaiThuHocPhiDAO.Instance.GetBLTHPByMaHV(mahv);
-            lbMaBLTHP.Text = list[0].MaBLTHP.ToString();
+
             HocVien hv = new HocVienDAO().GetHocVienByMaHV(mahv);
             lbten.Text = hv.HoTen;
             dtpNgayThu.Value = DateTime.Now;
-            lbThang.Text = list[0].Thang.ToString();
-            lbSoTien.Text = list[0].HocPhi.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+            int mabl = Int32.Parse(lbMaBLTHP.Text);
             DateTime ngaythu = DateTime.Parse(dtpNgayThu.Text);
-            if (BienLaiThuHocPhiDAO.Instance.ThuHocPhi(mahv, ngaythu))
+            if (BienLaiThuHocPhiDAO.Instance.ThuHocPhi(mabl, ngaythu))
             {
                 MessageBox.Show("Thu Thành Công!");
                 LoadBLTHP();
@@ -59,6 +58,17 @@ namespace QLTTHT.GUI
             else
             {
                 MessageBox.Show("Đã Có Lỗi Xảy Ra Trong Quá Trình Thu!");
+            }
+        }
+
+        private void dgvBLTHP_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvBLTHP.Rows[e.RowIndex];
+                lbMaBLTHP.Text = row.Cells[0].Value.ToString();
+                lbSoTien.Text = row.Cells[3].Value.ToString();
+                lbThang.Text = row.Cells[2].Value.ToString();
             }
         }
     }

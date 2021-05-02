@@ -29,9 +29,9 @@ namespace QLTTHT.DAO
             return list;
         }
 
-        public bool ThuHocPhi(int mahv, DateTime ngaythu)
+        public bool ThuHocPhi(int mabl, DateTime ngaythu)//sua mahv thanh mabl
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("exec THUHOCPHI @mahv , @ngaythu", new object[] { mahv, ngaythu });
+            int result = DataProvider.Instance.ExecuteNonQuery("exec THUHOCPHI @mabl , @ngaythu", new object[] { mabl, ngaythu });
             return result > 0;
         }
 

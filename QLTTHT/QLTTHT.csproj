@@ -57,7 +57,6 @@
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\HocVienDAO.cs" />
     <Compile Include="DAO\HocVienLopHocDAO.cs" />
-    <Compile Include="DAO\LopHocDAO.cs" />
     <Compile Include="DAO\MucHocPhiDAO.cs" />
     <Compile Include="DAO\MucUuDaiDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />

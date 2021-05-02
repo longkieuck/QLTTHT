@@ -910,20 +910,29 @@ GO
 
 -- Thu tuc thanh toan hoc phi
 CREATE PROC THUHOCPHI
-	@mahv INT,
+	@mabl INT,
 	@ngaythu DATE
 AS
 BEGIN
-	DECLARE @THANGMOI INT;
-	DECLARE @THANGCU INT;
+	DECLARE @THANG INT;
 
-	(SELECT @THANGCU = Thang FROM BIENLAITHUHOCPHI WHERE DaThanhToan = 0 and MaHV = @mahv)
+	(SELECT @THANG = Thang FROM BIENLAITHUHOCPHI WHERE DaThanhToan = 0 and MaBLTHP = @mabl)
 
 	UPDATE BIENLAITHUHOCPHI
 	SET DaThanhToan = 1,
 		NgayThu = @ngaythu
-	WHERE MaHV= @mahv and DaThanhToan = 0
+	WHERE MaBLTHP= @mabl and DaThanhToan = 0
+
 END
 GO
 
+--thu tuc lay bien lai thu hoc phi theo ma bien lai(vua them)
+create proc GetBienLaiThuHocPhi
+	@mabl int
+as
+begin
+	select *
+	from BIENLAITHUHOCPHI
+	where MaBLTHP = @mabl
+end
 ---------------------------------- / Quynh -----------------------------------------------
