@@ -80,7 +80,7 @@ namespace QLTTHT.DAO
         public List<LopHoc> GetLopHocByMaLH(int malophoc)
         {
             List<LopHoc> list = new List<LopHoc>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("exec GETLOPHOC @MALH", new object[] { malophoc });
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec HV_GetLopHoc @MALH", new object[] { malophoc });
             foreach (DataRow item in data.Rows)
             {
                 LopHoc entry = new LopHoc(item);
@@ -132,11 +132,11 @@ namespace QLTTHT.DAO
 
             int result = DataProvider.Instance.ExecuteNonQuery("exec ThemLopHocForHocVien @MaLH , @MaHV", new object[] { malh, mahv });
             return result > 0;
-          
+
         }
         public bool DeleteLopHoc(int malh)
         {
-            int result=DataProvider.Instance.ExecuteNonQuery("exec XOALH @MaLH",new object[] { malh });
+            int result = DataProvider.Instance.ExecuteNonQuery("exec HV_XOALH @MaLH", new object[] { malh });
             return result > 0;
         }
     }
