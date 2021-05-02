@@ -64,8 +64,8 @@ namespace QLTTHT
         }
         public void loadTongHocPhi()
         {
-            List<BienLaiThuHocPhi> list = BienLaiThuHocPhiDAO.Instance.GetBLTHPByMaHV(mahocvien);
-            lbhocphi.Text = list[0].HocPhi.ToString();
+            //List<BienLaiThuHocPhi> list = BienLaiThuHocPhiDAO.Instance.GetBLTHPByMaHV(mahocvien);
+            lbhocphi.Text = BienLaiThuHocPhiDAO.Instance.TongHocPhi(mahocvien).ToString();
         }
 
        

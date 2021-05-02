@@ -935,4 +935,22 @@ begin
 	from BIENLAITHUHOCPHI
 	where MaBLTHP = @mabl
 end
+go
+--
+create proc TongHocPhiTheoMaHV
+	@mahv int
+as
+begin
+	IF EXISTS (SELECT * FROM BIENLAITHUHOCPHI WHERE MaHV= @mahv and DaThanhToan = 0)
+	begin
+		select sum(HocPhi) as HP
+		from BIENLAITHUHOCPHI
+		where MaHV= @mahv and DaThanhToan = 0
+	end
+	else
+	begin
+		select 0 as HP
+	end
+end
+exec TongHocPhiTheoMaHV 4
 ---------------------------------- / Quynh -----------------------------------------------

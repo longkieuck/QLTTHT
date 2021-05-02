@@ -34,6 +34,19 @@ namespace QLTTHT.DAO
             int result = DataProvider.Instance.ExecuteNonQuery("exec THUHOCPHI @mabl , @ngaythu", new object[] { mabl, ngaythu });
             return result > 0;
         }
+        public int TongHocPhi(int mahv)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec TongHocPhiTheoMaHV @mahv", new object[] { mahv });
+            int result;
+
+            foreach (DataRow item in data.Rows)
+            {
+                result = Int32.Parse(item["HP"].ToString());
+                return result;
+            }
+
+            return 0;
+        }
 
     }
 }
