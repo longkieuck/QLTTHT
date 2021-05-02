@@ -30,25 +30,26 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnGhiNhan = new System.Windows.Forms.Button();
+            this.dgvHocVien = new System.Windows.Forms.DataGridView();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbIdLopHoc = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(40, 22);
+            this.panel2.Location = new System.Drawing.Point(27, 14);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1118, 75);
+            this.panel2.Size = new System.Drawing.Size(745, 49);
             this.panel2.TabIndex = 3;
             // 
             // label1
@@ -56,106 +57,121 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(378, 26);
+            this.label1.Location = new System.Drawing.Point(252, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(349, 46);
+            this.label1.Size = new System.Drawing.Size(246, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản Lý Lớp Học";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(44, 166);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(221, 28);
-            this.comboBox1.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(39, 134);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 29);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Lớp học";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(282, 166);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(267, 26);
-            this.dateTimePicker1.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(250, 592);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 35);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Ghi nhận";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(807, 166);
+            this.label3.Location = new System.Drawing.Point(534, 105);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 29);
+            this.label3.Size = new System.Drawing.Size(81, 19);
             this.label3.TabIndex = 9;
             this.label3.Text = "Thống kê";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnGhiNhan);
+            this.panel1.Controls.Add(this.dgvHocVien);
+            this.panel1.Controls.Add(this.checkedListBox1);
+            this.panel1.Location = new System.Drawing.Point(27, 129);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(827, 390);
+            this.panel1.TabIndex = 4;
+            // 
+            // btnGhiNhan
+            // 
+            this.btnGhiNhan.Location = new System.Drawing.Point(84, 353);
+            this.btnGhiNhan.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGhiNhan.Name = "btnGhiNhan";
+            this.btnGhiNhan.Size = new System.Drawing.Size(61, 23);
+            this.btnGhiNhan.TabIndex = 9;
+            this.btnGhiNhan.Text = "Ghi nhận";
+            this.btnGhiNhan.UseVisualStyleBackColor = true;
+            this.btnGhiNhan.Click += new System.EventHandler(this.btnGhiNhan_Click);
+            // 
+            // dgvHocVien
+            // 
+            this.dgvHocVien.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvHocVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHocVien.Location = new System.Drawing.Point(261, 2);
+            this.dgvHocVien.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvHocVien.Name = "dgvHocVien";
+            this.dgvHocVien.RowHeadersWidth = 62;
+            this.dgvHocVien.RowTemplate.Height = 28;
+            this.dgvHocVien.Size = new System.Drawing.Size(564, 335);
+            this.dgvHocVien.TabIndex = 2;
             // 
             // checkedListBox1
             // 
             this.checkedListBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkedListBox1.CheckOnClick = true;
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(4, 4);
+            this.checkedListBox1.Location = new System.Drawing.Point(2, 2);
+            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(505, 372);
-            this.checkedListBox1.TabIndex = 0;
+            this.checkedListBox1.Size = new System.Drawing.Size(255, 334);
+            this.checkedListBox1.TabIndex = 1;
             // 
-            // dataGridView1
+            // dateTimePicker1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(516, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(599, 349);
-            this.dataGridView1.TabIndex = 1;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(196, 105);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(88, 20);
+            this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // panel1
+            // label2
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.checkedListBox1);
-            this.panel1.Location = new System.Drawing.Point(40, 198);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1118, 386);
-            this.panel1.TabIndex = 4;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(116, 77);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 19);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Lớp học";
+            // 
+            // cbIdLopHoc
+            // 
+            this.cbIdLopHoc.FormattingEnabled = true;
+            this.cbIdLopHoc.Location = new System.Drawing.Point(27, 104);
+            this.cbIdLopHoc.Margin = new System.Windows.Forms.Padding(2);
+            this.cbIdLopHoc.Name = "cbIdLopHoc";
+            this.cbIdLopHoc.Size = new System.Drawing.Size(78, 21);
+            this.cbIdLopHoc.TabIndex = 10;
+            this.cbIdLopHoc.SelectedIndexChanged += new System.EventHandler(this.cbIdLopHoc_SelectedIndexChanged);
             // 
             // fClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1025, 530);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbIdLopHoc);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fClass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fClass";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,13 +181,13 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbIdLopHoc;
+        private System.Windows.Forms.Button btnGhiNhan;
+        private System.Windows.Forms.DataGridView dgvHocVien;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

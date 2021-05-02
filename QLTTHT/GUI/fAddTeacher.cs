@@ -25,7 +25,7 @@ namespace QLTTHT
             LoadMucTT();
             LamTrong();
         }
-        
+
         public void LoadMucTT()
         {
             List<MucThanhToan> listMucThanhToan = MucThanhToanDAO.Instance.GetAll();
@@ -59,20 +59,21 @@ namespace QLTTHT
             string sdt = txtSDT.Text;
             string diachi = txtDiaChi.Text;
             string gioitinh = "";
-            if(rbtnNam.Checked == true)
+            if (rbtnNam.Checked == true)
             {
                 gioitinh = "Nam";
             }
-            else if(rbtnNu.Checked == true)
+            else if (rbtnNu.Checked == true)
             {
                 gioitinh = "Nữ";
             }
             int mamtt = Int32.Parse(cbMucTT.Text);
-            if (tk == "" || mk == "" || xnmk == "" || hoten == "" || sdt == "" || diachi == "" || (rbtnNam.Checked == false && rbtnNu.Checked == false) || mamtt == 0) 
+            if (tk == "" || mk == "" || xnmk == "" || hoten == "" || sdt == "" || diachi == "" || (rbtnNam.Checked == false && rbtnNu.Checked == false) || mamtt == 0)
             {
                 MessageBox.Show("Xin Vui Lòng Điền Đầy Đủ Thông Tin");
             }
-            else if (mk.CompareTo(xnmk) != 0) {
+            else if (mk.CompareTo(xnmk) != 0)
+            {
                 MessageBox.Show("Xác Nhận Mật Khẩu Không Khớp! Vui Lòng Kiểm Tra Lại");
             }
             else
@@ -86,7 +87,7 @@ namespace QLTTHT
                     MessageBox.Show("Đã Xảy Ra Lỗi Trong Quá Trình Thêm Mới Giáo Viên!");
                 }
             }
-            
+
         }
 
         private void cBMk_CheckedChanged(object sender, EventArgs e)

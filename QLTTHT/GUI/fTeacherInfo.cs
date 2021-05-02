@@ -21,7 +21,7 @@ namespace QLTTHT
         public fTeacherInfo()
         {
             InitializeComponent();
-            
+
         }
         public fTeacherInfo(int magiaovien)
         {
@@ -104,7 +104,7 @@ namespace QLTTHT
             string diachi = txtDiaChi.Text;
             string sdt = txtSDT.Text;
             string gioitinh = "";
-            if(rBNam.Checked == true)
+            if (rBNam.Checked == true)
             {
                 gioitinh = "Nam";
             }
@@ -113,7 +113,7 @@ namespace QLTTHT
                 gioitinh = "Nữ";
             }
             int mamtt = mamucthanhtoan;
-            
+
             if (magv == 0 || hoten == "" || sdt == "" || diachi == "" || mamtt == 0 || gioitinh == "" || mamtt == 0)
             {
                 MessageBox.Show("Xin Vui Lòng Điền Đầy Đủ Thông Tin");
@@ -138,7 +138,8 @@ namespace QLTTHT
             if (GiaoVienDAO.Instance.DeleteGiaoVien(magv))
             {
                 MessageBox.Show("Đã Xóa Hồ Sơ Giáo Viên Thành Công!");
-            } else
+            }
+            else
             {
                 MessageBox.Show("Đã Xảy Ra Lỗi Trong Quá Trình Xóa!");
             }
