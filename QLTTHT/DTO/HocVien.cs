@@ -25,7 +25,7 @@ namespace QLTTHT.DTO
             this.SDT = dataRow["SDT"].ToString();
             this.NgaySinh = DateTime.Parse(dataRow["NgaySinh"].ToString());
             this.DiaChi = dataRow["DiaChi"].ToString();
-            this.GioiTinh = dataRow["GioiTinh"].ToString();
+            this.GioiTinh =dataRow["GioiTinh"].ToString();
             this.MaMUD = Int32.Parse(dataRow["MaMUD"].ToString());
         }
 

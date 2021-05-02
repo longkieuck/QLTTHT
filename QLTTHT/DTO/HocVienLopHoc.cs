@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QLTTHT.DAO
+namespace QLTTHT.DTO
 {
     class HocVienLopHoc
     {

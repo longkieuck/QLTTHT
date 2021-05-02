@@ -13,7 +13,7 @@ namespace QLTTHT.DAO
     {
         private static LopHocDAO instance;
 
-        internal static LopHocDAO Instance
+        public static LopHocDAO Instance
         {
             get { if (instance == null) instance = new LopHocDAO(); return instance; }
             private set { instance = value; }
@@ -29,11 +29,33 @@ namespace QLTTHT.DAO
             }
             return list;
         }
+        public List<LopHoc> GetLopHocByMaHV(int mahv)
+        {
+            List<LopHoc> list = new List<LopHoc>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GetLopHocByMaHV @mahv", new object[] { mahv });
+            foreach (DataRow item in data.Rows)
+            {
+                LopHoc entry = new LopHoc(item);
+                list.Add(entry);
+            }
+            return list;
+        }
 
         public List<LopHoc> GetLopHocByMaGV(int magv)
         {
             List<LopHoc> list = new List<LopHoc>();
             DataTable data = DataProvider.Instance.ExecuteQuery("exec GetLopHocByMaGV @magv", new object[] { magv });
+            foreach (DataRow item in data.Rows)
+            {
+                LopHoc entry = new LopHoc(item);
+                list.Add(entry);
+            }
+            return list;
+        }
+        public List<LopHoc> GetLopHoc()
+        {
+            List<LopHoc> list = new List<LopHoc>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("GetLopHoc");
             foreach (DataRow item in data.Rows)
             {
                 LopHoc entry = new LopHoc(item);
@@ -91,6 +113,31 @@ namespace QLTTHT.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery("exec GETMAMHP @HP1BUOI", new object[] { hp1buoi });
             MucHocPhi mh = new MucHocPhi(data.Rows[0]);
             return mh.MaMHP;
+        }
+
+        public MonHoc GetMonHoc(int malh)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GetMonHocByMaLH @malh", new object[] { malh });
+            MonHoc mh = new MonHoc(data.Rows[0]);
+            return mh;
+        }
+        public GiaoVien GetGiaoVien(int malh)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GetGiaoVienByMaLH @malh", new object[] { malh });
+            GiaoVien gv = new GiaoVien(data.Rows[0]);
+            return gv;
+        }
+        public bool ThemLopHocVien(int malh, int mahv)
+        {
+
+            int result = DataProvider.Instance.ExecuteNonQuery("exec ThemLopHocForHocVien @MaLH , @MaHV", new object[] { malh, mahv });
+            return result > 0;
+          
+        }
+        public bool DeleteLopHoc(int malh)
+        {
+            int result=DataProvider.Instance.ExecuteNonQuery("exec XOALH @MaLH",new object[] { malh });
+            return result > 0;
         }
     }
 }

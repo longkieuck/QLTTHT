@@ -48,14 +48,18 @@
   <ItemGroup>
     <Compile Include="DAO\BienLaiTraLuongDAO.cs" />
     <Compile Include="DAO\BuoiHocDAO.cs" />
-    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\DiemDanhDAO.cs" />
     <Compile Include="DAO\GiaoVienDAO.cs" />
-    <Compile Include="DAO\HocVienDAO.cs" />
     <Compile Include="DAO\LopHocDAO.cs" />
     <Compile Include="DAO\MonHocDAO.cs" />
-    <Compile Include="DAO\MucHocPhiDAO.cs" />
     <Compile Include="DAO\MucThanhToanDAO.cs" />
+    <Compile Include="DAO\BienLaiThuHocPhiDAO.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\HocVienDAO.cs" />
+    <Compile Include="DAO\HocVienLopHocDAO.cs" />
+    <Compile Include="DAO\LopHocDAO.cs" />
+    <Compile Include="DAO\MucHocPhiDAO.cs" />
+    <Compile Include="DAO\MucUuDaiDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DTO\BienLaiThuHocPhi.cs" />
     <Compile Include="DTO\BienLaiTraLuong.cs" />
@@ -68,6 +72,7 @@
     <Compile Include="DTO\MonHoc.cs" />
     <Compile Include="DTO\MucHocPhi.cs" />
     <Compile Include="DTO\MucThanhToan.cs" />
+    <Compile Include="DTO\MucUuDai.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
     <Compile Include="GUI\fAddClass.cs">
       <SubType>Form</SubType>
@@ -80,6 +85,12 @@
     </Compile>
     <Compile Include="GUI\fAddClassForTeacher.Designer.cs">
       <DependentUpon>fAddClassForTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fAddClassStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fAddClassStudent.Designer.cs">
+      <DependentUpon>fAddClassStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fAddStudent.cs">
       <SubType>Form</SubType>
@@ -122,6 +133,12 @@
     </Compile>
     <Compile Include="GUI\fMain.designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fReceiptTuition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fReceiptTuition.Designer.cs">
+      <DependentUpon>fReceiptTuition.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fStudent.cs">
       <SubType>Form</SubType>
@@ -167,6 +184,9 @@
     <EmbeddedResource Include="GUI\fAddClassForTeacher.resx">
       <DependentUpon>fAddClassForTeacher.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fAddClassStudent.resx">
+      <DependentUpon>fAddClassStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fAddStudent.resx">
       <DependentUpon>fAddStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fReceiptTuition.resx">
+      <DependentUpon>fReceiptTuition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fStudent.resx">
       <DependentUpon>fStudent.cs</DependentUpon>

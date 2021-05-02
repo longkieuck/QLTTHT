@@ -16,6 +16,8 @@ namespace QLTTHT.DTO
         public string DiaChi { set; get; }
         public string GioiTinh { set; get; }
         public int MaMTT { set; get; }
+        public string MaTK { set; get; }
+       
 
         public GiaoVien() { }
         public GiaoVien(DataRow dataRow)
@@ -27,6 +29,8 @@ namespace QLTTHT.DTO
             this.DiaChi = dataRow["DiaChi"].ToString();
             this.GioiTinh = dataRow["GioiTinh"].ToString();
             this.MaMTT = Int32.Parse(dataRow["MaMTT"].ToString());
+            this.MaTK = dataRow["TK"].ToString();
+           
         }
     }
 }

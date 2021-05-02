@@ -113,5 +113,7 @@ namespace QLTTHT
                 txtXacNhanMK.UseSystemPasswordChar = true;
             }
         }
+
+        
     }
 }
