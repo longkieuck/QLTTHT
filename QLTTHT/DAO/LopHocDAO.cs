@@ -80,7 +80,7 @@ namespace QLTTHT.DAO
         public List<LopHoc> GetLopHocByMaLH(int malophoc)
         {
             List<LopHoc> list = new List<LopHoc>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("exec HV_GetLopHoc @MALH", new object[] { malophoc });
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec GETLOPHOC @MALH", new object[] { malophoc });
             foreach (DataRow item in data.Rows)
             {
                 LopHoc entry = new LopHoc(item);

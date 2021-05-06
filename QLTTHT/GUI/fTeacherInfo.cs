@@ -155,24 +155,28 @@ namespace QLTTHT
         private void btnThemLop_Click(object sender, EventArgs e)
         {
             fAddClassForTeacher f = new fAddClassForTeacher(magiaovien);
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            LoadThongTinGV();
+            this.Show();
         }
 
         private void btnSuaLop_Click(object sender, EventArgs e)
         {
             fUpdateClassForTeacher f = new fUpdateClassForTeacher(malophoc);
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            LoadThongTinGV();
+            this.Show();
         }
 
         private void btnXoaLop_Click(object sender, EventArgs e)
         {
             fDeleteClassForTeacher f = new fDeleteClassForTeacher(malophoc);
-            f.Show();
-        }
-
-        private void btnXem_Click(object sender, EventArgs e)
-        {
+            this.Hide();
+            f.ShowDialog();
             LoadThongTinGV();
+            this.Show();
         }
     }
 }
