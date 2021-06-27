@@ -108,6 +108,7 @@
             // 
             // dgvBLTHP
             // 
+            this.dgvBLTHP.AllowUserToAddRows = false;
             this.dgvBLTHP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBLTHP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaBLTHP,

@@ -42,6 +42,9 @@ namespace QLTTHT
             checkedListBox1.DataSource = HocVienCheckList;
             LoadComboboxIdLopHoc();
             LoadComboboxHocVien();
+            connection = new SqlConnection(str);
+            connection.Open();
+            LoadData();
         }
         private void LoadComboboxIdLopHoc()
         {
@@ -86,11 +89,15 @@ namespace QLTTHT
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             LoadComboboxHocVien();
+
         }
 
         private void cbIdLopHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadComboboxHocVien();
+            connection = new SqlConnection(str);
+            connection.Open();
+            LoadData();
         }
 
         private void dgvHocVien_CellContentClick(object sender, DataGridViewCellEventArgs e)

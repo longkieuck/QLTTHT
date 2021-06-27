@@ -61,6 +61,7 @@ namespace QLTTHT.GUI
             if (LopHocDAO.Instance.ThemLopHocVien(malh,mahv))
             {
                 MessageBox.Show("Thêm Lớp Thành Công!");
+                this.Close();
 
             }
             else

@@ -17,7 +17,6 @@ namespace QLTTHT
     {
         public int magiaovien;
         public int malophoc;
-        int mamucthanhtoan;
         public fTeacherInfo()
         {
             InitializeComponent();
@@ -30,13 +29,6 @@ namespace QLTTHT
             LoadThongTinGV();
         }
 
-        public void LoadMucTT()
-        {
-            List<MucThanhToan> listMucThanhToan = MucThanhToanDAO.Instance.GetAll();
-            cbMTT.DataSource = listMucThanhToan;
-            cbMTT.DisplayMember = "TiLe";
-        }
-
         public void LoadTongLuong()
         {
             List<BienLaiTraLuong> list = BienLaiTraLuongDAO.Instance.GetBLTLByMaGV(magiaovien);
@@ -45,7 +37,6 @@ namespace QLTTHT
 
         public void LoadThongTinGV()
         {
-            LoadMucTT();
             GiaoVien gv = GiaoVienDAO.Instance.GetGiaoVienByMaGV(magiaovien);
             lbID.Text = gv.MaGV.ToString();
             txtHoTen.Text = gv.HoTen;
@@ -72,16 +63,6 @@ namespace QLTTHT
             List<LopHoc> listLop = LopHocDAO.Instance.GetLopHocByMaGV(magiaovien);
             cbLopDay.DataSource = listLop;
             cbLopDay.DisplayMember = "TenLH";
-        }
-
-        private void cbMTT_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBox cb = sender as ComboBox;
-            if (cb.SelectedItem == null)
-                return;
-
-            MucThanhToan selected = cbMTT.SelectedItem as MucThanhToan;
-            mamucthanhtoan = selected.MaMTT;
         }
 
         private void cbLopDay_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,7 +93,7 @@ namespace QLTTHT
             {
                 gioitinh = "Nữ";
             }
-            int mamtt = mamucthanhtoan;
+            int mamtt = Int32.Parse(cbMTT.Text);
 
             if (magv == 0 || hoten == "" || sdt == "" || diachi == "" || mamtt == 0 || gioitinh == "" || mamtt == 0)
             {
