@@ -81,6 +81,7 @@ namespace QLTTHT
                 if (GiaoVienDAO.Instance.InsertGiaoVien(hoten, ngaysinh, diachi, gioitinh, sdt, mamtt, tk, mk))
                 {
                     MessageBox.Show("Thêm Mới Giáo Viên Thành Công!");
+                    this.Close();
                 }
                 else
                 {

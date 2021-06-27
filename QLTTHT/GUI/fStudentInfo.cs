@@ -16,7 +16,6 @@ namespace QLTTHT
     public partial class fStudentInfo : Form
     {
         public int mahocvien;
-        public int mamud;
         public int malh;
         
         public fStudentInfo(int mahocvien)
@@ -48,8 +47,8 @@ namespace QLTTHT
             }
             else
             {
-                rdbNam.Checked = true;
-                rdbNu.Checked = false;
+                rdbNam.Checked = false;
+                rdbNu.Checked = true;
             }
             txtMucUuDai.Text = MucUuDaiDAO.Instance.GetUD(hv.MaMUD).MUD.ToString();
             LoadDSLop();
@@ -109,7 +108,6 @@ namespace QLTTHT
             {
                 gioitinh = "Nữ";
             }
-            int mamud = this.mamud;
 
             if ( mahv== 0 || hoten == "" || sdt == "" || diachi == "" || gioitinh == "")
             {

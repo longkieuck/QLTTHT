@@ -73,12 +73,6 @@
     <Compile Include="DTO\MucThanhToan.cs" />
     <Compile Include="DTO\MucUuDai.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
-    <Compile Include="GUI\fAddClass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\fAddClass.designer.cs">
-      <DependentUpon>fAddClass.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\fAddClassForTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,9 +171,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\fAddClass.resx">
-      <DependentUpon>fAddClass.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fAddClassForTeacher.resx">
       <DependentUpon>fAddClassForTeacher.cs</DependentUpon>
     </EmbeddedResource>

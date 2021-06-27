@@ -61,7 +61,7 @@ namespace QLTTHT
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            string str = btnTimKiem.Text.Trim();
+            string str = txtTimKiemHV.Text.Trim();
             if (str == "")
             {
                 MessageBox.Show("Chưa nhập thông tin tìm kiếm");

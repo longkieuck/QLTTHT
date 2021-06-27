@@ -20,7 +20,12 @@ namespace QLTTHT.DTO
         public BienLaiTraLuong(DataRow dataRow)
         {
             this.MaBLTL = Int32.Parse(dataRow["MaBLTL"].ToString());
-            this.NgayTra = DateTime.Parse(dataRow["NgayTra"].ToString());
+            if (dataRow["NgayTra"].ToString().Equals(""))
+            {
+                this.NgayTra = DateTime.Now;
+            }
+            else
+                this.NgayTra = DateTime.Parse(dataRow["NgayTra"].ToString());
             this.Thang = Int32.Parse(dataRow["Thang"].ToString());
             this.Luong = float.Parse(dataRow["Luong"].ToString());
             this.DaThanhToan = Int32.Parse(dataRow["DaThanhToan"].ToString());
