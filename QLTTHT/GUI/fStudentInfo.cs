@@ -137,6 +137,7 @@ namespace QLTTHT
                 if (HocVienDAO.Instance.DeleteHocvien(mahv))
                 {
                     MessageBox.Show("Đã Xóa Thành Công!");
+                    this.Close();
                 }
                 else
                 {

@@ -65,7 +65,7 @@
             this.btnThemLop.Location = new System.Drawing.Point(713, 161);
             this.btnThemLop.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemLop.Name = "btnThemLop";
-            this.btnThemLop.Size = new System.Drawing.Size(17, 18);
+            this.btnThemLop.Size = new System.Drawing.Size(17, 21);
             this.btnThemLop.TabIndex = 53;
             this.btnThemLop.Text = "+";
             this.btnThemLop.UseVisualStyleBackColor = true;
@@ -296,7 +296,7 @@
             this.btnSuaLop.Location = new System.Drawing.Point(734, 161);
             this.btnSuaLop.Margin = new System.Windows.Forms.Padding(2);
             this.btnSuaLop.Name = "btnSuaLop";
-            this.btnSuaLop.Size = new System.Drawing.Size(17, 18);
+            this.btnSuaLop.Size = new System.Drawing.Size(17, 21);
             this.btnSuaLop.TabIndex = 57;
             this.btnSuaLop.Text = "e";
             this.btnSuaLop.UseVisualStyleBackColor = true;
@@ -307,7 +307,7 @@
             this.btnXoaLop.Location = new System.Drawing.Point(756, 161);
             this.btnXoaLop.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaLop.Name = "btnXoaLop";
-            this.btnXoaLop.Size = new System.Drawing.Size(17, 18);
+            this.btnXoaLop.Size = new System.Drawing.Size(17, 21);
             this.btnXoaLop.TabIndex = 58;
             this.btnXoaLop.Text = "x";
             this.btnXoaLop.UseVisualStyleBackColor = true;

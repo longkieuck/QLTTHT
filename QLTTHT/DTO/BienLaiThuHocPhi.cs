@@ -20,6 +20,11 @@ namespace QLTTHT.DTO
         public BienLaiThuHocPhi(DataRow dataRow)
         {
             this.MaBLTHP = Int32.Parse(dataRow["MaBLTHP"].ToString());
+            if (dataRow["NgayThu"].ToString().Equals(""))
+            {
+                this.NgayThu = DateTime.Now;
+            }
+            else
             this.NgayThu = DateTime.Parse(dataRow["NgayThu"].ToString());
             this.Thang=Int32.Parse(dataRow["Thang"].ToString());
             this.HocPhi = float.Parse(dataRow["HocPhi"].ToString());

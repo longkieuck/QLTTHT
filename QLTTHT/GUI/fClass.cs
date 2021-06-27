@@ -17,7 +17,7 @@ namespace QLTTHT
     {
         SqlConnection connection;
         SqlCommand command;
-        string str = "Data Source=.\\SQLEXPRESS;Initial Catalog=QL_TTHT;Integrated Security=True";
+        string str = DataProvider.connectionSTR;
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         BindingSource HocVienCheckList = new BindingSource();
@@ -91,6 +91,11 @@ namespace QLTTHT
         private void cbIdLopHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadComboboxHocVien();
+        }
+
+        private void dgvHocVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

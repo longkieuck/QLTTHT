@@ -22,7 +22,6 @@ namespace QLTTHT.DTO
             this.TenLH = dataRow["TenLH"].ToString();
             this.MaMHP = Int32.Parse(dataRow["MaMHP"].ToString());
             this.MaMH = Int32.Parse(dataRow["MaMH"].ToString());
-            this.MaGV = Int32.Parse(dataRow["MaGV"].ToString());
         }
     }
 }

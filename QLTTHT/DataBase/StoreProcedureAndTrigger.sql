@@ -13,7 +13,7 @@ BEGIN
 	SET @MAMUD=(SELECT MAMUD
 				FROM HOCVIEN
 				WHERE MaHV=@MAHV)
-	IF(@MAMUD < 3)
+	IF(@MAMUD < 4)
 	BEGIN
 		UPDATE HOCVIEN
 		SET MAMUD = HOCVIEN.MAMUD + 1
@@ -34,7 +34,7 @@ BEGIN
 	SET @MAMTT=(SELECT MAMTT
 				FROM GIAOVIEN
 				WHERE MaGV=@MAGV)
-	IF(@MAMTT < 3)
+	IF(@MAMTT < 4)
 	BEGIN
 		UPDATE GIAOVIEN
 		SET MaMTT = GIAOVIEN.MaMTT + 1
@@ -364,12 +364,14 @@ create proc DeleteGiaoVien
 	@magv int
 as
 begin
-	DELETE LOPHOC
+	update LOPHOC
+	set magv = null
 	WHERE MaGV in (select MaGV
 					from GIAOVIEN
 					where MaGV = @magv)
 
-	DELETE BIENLAITRALUONG
+	update BIENLAITRALUONG
+	set magv = null
 	WHERE MaGV in (select MaGV
 					from GIAOVIEN
 					where MaGV = @magv)
@@ -953,5 +955,4 @@ begin
 		select 0 as HP
 	end
 end
-exec TongHocPhiTheoMaHV 4
 ---------------------------------- / Quynh -----------------------------------------------

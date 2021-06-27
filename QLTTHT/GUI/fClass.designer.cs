@@ -46,7 +46,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(27, 14);
+            this.panel2.Location = new System.Drawing.Point(68, 11);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(745, 49);
@@ -57,7 +57,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(252, 17);
+            this.label1.Location = new System.Drawing.Point(255, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(246, 32);
@@ -100,6 +100,7 @@
             // 
             // dgvHocVien
             // 
+            this.dgvHocVien.AllowUserToAddRows = false;
             this.dgvHocVien.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvHocVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHocVien.Location = new System.Drawing.Point(261, 2);
@@ -109,6 +110,7 @@
             this.dgvHocVien.RowTemplate.Height = 28;
             this.dgvHocVien.Size = new System.Drawing.Size(564, 335);
             this.dgvHocVien.TabIndex = 2;
+            this.dgvHocVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocVien_CellContentClick);
             // 
             // checkedListBox1
             // 
@@ -136,12 +138,12 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(116, 77);
+            this.label2.Location = new System.Drawing.Point(107, 75);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 19);
+            this.label2.Size = new System.Drawing.Size(91, 19);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Lớp học";
+            this.label2.Text = "Điểm danh";
             // 
             // cbIdLopHoc
             // 
@@ -149,7 +151,7 @@
             this.cbIdLopHoc.Location = new System.Drawing.Point(27, 104);
             this.cbIdLopHoc.Margin = new System.Windows.Forms.Padding(2);
             this.cbIdLopHoc.Name = "cbIdLopHoc";
-            this.cbIdLopHoc.Size = new System.Drawing.Size(78, 21);
+            this.cbIdLopHoc.Size = new System.Drawing.Size(105, 21);
             this.cbIdLopHoc.TabIndex = 10;
             this.cbIdLopHoc.SelectedIndexChanged += new System.EventHandler(this.cbIdLopHoc_SelectedIndexChanged);
             // 
@@ -157,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 530);
+            this.ClientSize = new System.Drawing.Size(885, 516);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbIdLopHoc);
@@ -166,6 +168,7 @@
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fClass";
+            this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fClass";
             this.panel2.ResumeLayout(false);

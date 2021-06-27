@@ -58,12 +58,12 @@
             this.DiaChi,
             this.SDT,
             this.MTT});
-            this.dtgvGiaoVien.Location = new System.Drawing.Point(27, 125);
-            this.dtgvGiaoVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgvGiaoVien.Location = new System.Drawing.Point(27, 114);
+            this.dtgvGiaoVien.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvGiaoVien.Name = "dtgvGiaoVien";
             this.dtgvGiaoVien.RowHeadersWidth = 62;
             this.dtgvGiaoVien.RowTemplate.Height = 28;
-            this.dtgvGiaoVien.Size = new System.Drawing.Size(823, 392);
+            this.dtgvGiaoVien.Size = new System.Drawing.Size(823, 362);
             this.dtgvGiaoVien.TabIndex = 14;
             this.dtgvGiaoVien.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvGiaoVien_CellDoubleClick);
             // 
@@ -127,7 +127,7 @@
             // 
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(27, 14);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(823, 49);
             this.panel2.TabIndex = 10;
@@ -181,7 +181,7 @@
             this.Controls.Add(this.txtHoTen);
             this.Controls.Add(this.dtgvGiaoVien);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fTeacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fTeacher";

@@ -138,6 +138,7 @@ namespace QLTTHT
             if (GiaoVienDAO.Instance.DeleteGiaoVien(magv))
             {
                 MessageBox.Show("Đã Xóa Hồ Sơ Giáo Viên Thành Công!");
+                this.Close();
             }
             else
             {

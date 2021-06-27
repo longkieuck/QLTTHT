@@ -55,7 +55,7 @@ namespace QLTTHT.DAO
         public List<LopHoc> GetLopHoc()
         {
             List<LopHoc> list = new List<LopHoc>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("GetLopHoc");
+            DataTable data = DataProvider.Instance.ExecuteQuery("HV_GetLopHoc");
             foreach (DataRow item in data.Rows)
             {
                 LopHoc entry = new LopHoc(item);

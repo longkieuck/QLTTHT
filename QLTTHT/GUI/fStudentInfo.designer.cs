@@ -64,7 +64,7 @@
             // 
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(155, 8);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(391, 32);
             this.panel1.TabIndex = 1;
@@ -241,7 +241,7 @@
             // 
             // btnsua
             // 
-            this.btnsua.Location = new System.Drawing.Point(205, 311);
+            this.btnsua.Location = new System.Drawing.Point(130, 311);
             this.btnsua.Margin = new System.Windows.Forms.Padding(2);
             this.btnsua.Name = "btnsua";
             this.btnsua.Size = new System.Drawing.Size(91, 25);
@@ -266,7 +266,7 @@
             this.button3.Location = new System.Drawing.Point(660, 175);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(17, 18);
+            this.button3.Size = new System.Drawing.Size(17, 21);
             this.button3.TabIndex = 32;
             this.button3.Text = "+";
             this.button3.UseVisualStyleBackColor = true;
@@ -296,7 +296,7 @@
             // 
             // btnxoa
             // 
-            this.btnxoa.Location = new System.Drawing.Point(365, 311);
+            this.btnxoa.Location = new System.Drawing.Point(344, 311);
             this.btnxoa.Margin = new System.Windows.Forms.Padding(2);
             this.btnxoa.Name = "btnxoa";
             this.btnxoa.Size = new System.Drawing.Size(91, 25);
@@ -307,10 +307,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(681, 174);
+            this.button6.Location = new System.Drawing.Point(681, 175);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(17, 18);
+            this.button6.Size = new System.Drawing.Size(17, 21);
             this.button6.TabIndex = 37;
             this.button6.Text = "x";
             this.button6.UseVisualStyleBackColor = true;
