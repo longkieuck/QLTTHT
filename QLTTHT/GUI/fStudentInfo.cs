@@ -177,7 +177,7 @@ namespace QLTTHT
             DialogResult result = MessageBox.Show("bạn có chắc chắn muốn xóa không?", "xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                if (LopHocDAO.Instance.DeleteLopHoc(malh))
+                if (LopHocDAO.Instance.DeleteLopHoc(malh, mahv))
                 {
                     MessageBox.Show("Đã Xóa Thành Công!");
                     LoadTTHocVien();

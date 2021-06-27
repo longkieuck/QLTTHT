@@ -134,9 +134,9 @@ namespace QLTTHT.DAO
             return result > 0;
 
         }
-        public bool DeleteLopHoc(int malh)
+        public bool DeleteLopHoc(int malh, int mahv)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("exec HV_XOALH @MaLH", new object[] { malh });
+            int result = DataProvider.Instance.ExecuteNonQuery("exec HV_XOALH @MaLH , @MaHV", new object[] { malh,mahv });
             return result > 0;
         }
     }
