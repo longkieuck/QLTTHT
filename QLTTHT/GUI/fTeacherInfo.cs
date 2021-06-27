@@ -93,15 +93,14 @@ namespace QLTTHT
             {
                 gioitinh = "Nữ";
             }
-            int mamtt = Int32.Parse(cbMTT.Text);
 
-            if (magv == 0 || hoten == "" || sdt == "" || diachi == "" || mamtt == 0 || gioitinh == "" || mamtt == 0)
+            if (magv == 0 || hoten == "" || sdt == "" || diachi == "" || gioitinh == "")
             {
                 MessageBox.Show("Xin Vui Lòng Điền Đầy Đủ Thông Tin");
             }
             else
             {
-                if (GiaoVienDAO.Instance.UpdateGiaoVien(magv, hoten, ngaysinh, diachi, gioitinh, sdt, mamtt))
+                if (GiaoVienDAO.Instance.UpdateGiaoVien(magv, hoten, ngaysinh, diachi, gioitinh, sdt))
                 {
                     MessageBox.Show("Chỉnh Sửa Thông Tin Giáo Viên Thành Công!");
                 }

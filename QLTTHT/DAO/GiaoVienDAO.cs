@@ -52,9 +52,9 @@ namespace QLTTHT.DAO
             return result > 0;
         }
 
-        public bool UpdateGiaoVien(int magv, string hoten, DateTime ngaysinh, string diachi, string gioitinh, string sdt, int mamtt)
+        public bool UpdateGiaoVien(int magv, string hoten, DateTime ngaysinh, string diachi, string gioitinh, string sdt)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("exec UpdateGiaoVien @magv , @hoten , @sdt , @ngaysinh , @diachi , @gioitinh , @mamtt", new object[] { magv, hoten, sdt, ngaysinh, diachi, gioitinh, mamtt });
+            int result = DataProvider.Instance.ExecuteNonQuery("exec UpdateGiaoVien @magv , @hoten , @sdt , @ngaysinh , @diachi , @gioitinh", new object[] { magv, hoten, sdt, ngaysinh, diachi, gioitinh });
             return result > 0;
         }
 

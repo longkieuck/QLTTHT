@@ -339,12 +339,11 @@ create proc UpdateGiaoVien
 	@sdt char(10),
 	@ngaysinh date,
 	@diachi nvarchar(50),
-	@gioitinh nvarchar(3),
-	@mamtt int
+	@gioitinh nvarchar(3)
 as
 begin
 	update GIAOVIEN
-	set HoTen=@hoten, SDT=@sdt, NgaySinh=@ngaysinh, DiaChi=@diachi, GioiTinh=@gioitinh, MaMTT=@mamtt
+	set HoTen=@hoten, SDT=@sdt, NgaySinh=@ngaysinh, DiaChi=@diachi, GioiTinh=@gioitinh
 	where MaGV = @magv
 end
 go
