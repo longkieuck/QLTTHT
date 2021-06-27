@@ -46,12 +46,10 @@ namespace QLTTHT
         private void btnThemGiaoVien_Click(object sender, EventArgs e)
         {
             fAddTeacher f = new fAddTeacher();
-            f.Show();
-        }
-
-        private void btnXem_Click(object sender, EventArgs e)
-        {
+            this.Hide();
+            f.ShowDialog();
             LoadTeacher();
+            this.Show();
         }
 
         private void dtgvGiaoVien_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -59,7 +57,10 @@ namespace QLTTHT
             int MaGVSelected = Int32.Parse(dtgvGiaoVien.CurrentRow.Cells["MaGV"].Value.ToString());          
 
             fTeacherInfo f = new fTeacherInfo(MaGVSelected);
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            LoadTeacher();
+            this.Show();
         }
     }
 }

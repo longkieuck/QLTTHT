@@ -57,7 +57,6 @@
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.btnXem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +73,7 @@
             // 
             // btnTraLuong
             // 
-            this.btnTraLuong.Location = new System.Drawing.Point(572, 327);
+            this.btnTraLuong.Location = new System.Drawing.Point(575, 327);
             this.btnTraLuong.Margin = new System.Windows.Forms.Padding(2);
             this.btnTraLuong.Name = "btnTraLuong";
             this.btnTraLuong.Size = new System.Drawing.Size(89, 25);
@@ -283,7 +282,7 @@
             // 
             // btnXoaHoSo
             // 
-            this.btnXoaHoSo.Location = new System.Drawing.Point(284, 329);
+            this.btnXoaHoSo.Location = new System.Drawing.Point(355, 327);
             this.btnXoaHoSo.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaHoSo.Name = "btnXoaHoSo";
             this.btnXoaHoSo.Size = new System.Drawing.Size(91, 25);
@@ -362,22 +361,11 @@
             this.dtpNgaySinh.Size = new System.Drawing.Size(185, 20);
             this.dtpNgaySinh.TabIndex = 65;
             // 
-            // btnXem
-            // 
-            this.btnXem.Location = new System.Drawing.Point(439, 328);
-            this.btnXem.Name = "btnXem";
-            this.btnXem.Size = new System.Drawing.Size(83, 26);
-            this.btnXem.TabIndex = 66;
-            this.btnXem.Text = "Xem";
-            this.btnXem.UseVisualStyleBackColor = true;
-            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
-            // 
             // fTeacherInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 377);
-            this.Controls.Add(this.btnXem);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.txtSDT);
@@ -448,6 +436,5 @@
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
-        private System.Windows.Forms.Button btnXem;
     }
 }
