@@ -34,7 +34,6 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.txtTimKiemHV = new System.Windows.Forms.TextBox();
             this.dgvHocVien = new System.Windows.Forms.DataGridView();
-            this.btnCapNhat = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).BeginInit();
             this.SuspendLayout();
@@ -105,22 +104,11 @@
             this.dgvHocVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocVien_CellContentClick);
             this.dgvHocVien.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocVien_CellDoubleClick);
             // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Location = new System.Drawing.Point(152, 76);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
-            this.btnCapNhat.TabIndex = 10;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-            // 
             // fStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.dgvHocVien);
             this.Controls.Add(this.txtTimKiemHV);
             this.Controls.Add(this.btnTimKiem);
@@ -146,6 +134,5 @@
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.TextBox txtTimKiemHV;
         private System.Windows.Forms.DataGridView dgvHocVien;
-        private System.Windows.Forms.Button btnCapNhat;
     }
 }
